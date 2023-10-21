@@ -11,8 +11,16 @@
 # production
 /build
 
+# Sketch and Figma files
+*.sketch
+*.fig
+
+# xd design file
+*.xd
+
 # misc
 .DS_Store
+.prettierignore
 .env.local
 .env.development.local
 .env.test.local
