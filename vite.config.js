@@ -8,7 +8,7 @@ export default defineConfig(() => ({
 		jsxFactory: "h",
 		jsxFragment: "Fragment",
 		loader: "jsx",
-		include: /src\/.*\.jsx?$/,
+		include: /src\\.*\.jsx?$/,
 		exclude: []
 	},
 	optimizeDeps: {
@@ -17,7 +17,7 @@ export default defineConfig(() => ({
 				{
 					name: "load-js-files-as-jsx",
 					setup(build) {
-						build.onLoad({ filter: /src\/.*\.js$/ }, async (args) => ({
+						build.onLoad({ filter: /src\\.*\.js$/ }, async (args) => ({
 							loader: "jsx",
 							contents: await fs.readFile(args.path, "utf8")
 						}));
