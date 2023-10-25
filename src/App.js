@@ -1,22 +1,14 @@
-import "./index.css";
+import Main from "./pages/Main";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<Router>
+			<Routes>
+				<Route element={<Main />} path="/" />
+			</Routes>
+		</Router>
 	);
 }
 export default App;
