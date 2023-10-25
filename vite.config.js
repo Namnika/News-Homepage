@@ -2,13 +2,22 @@ import { resolve } from "path";
 import fs from "fs/promises";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import reactRefresh from "@vitejs/plugin-react-refresh";
 
 export default defineConfig(() => ({
+	server: {
+		port: 5000
+	},
+	resolve: {
+		alias: {
+			src: resolve(__dirname, "src")
+		}
+	},
 	esbuild: {
 		jsxFactory: "h",
 		jsxFragment: "Fragment",
 		loader: "jsx",
-		include: /src\\.*\.jsx?$/,
+		include: /src\/.*\.jsx?$/,
 		exclude: []
 	},
 	optimizeDeps: {
@@ -26,12 +35,6 @@ export default defineConfig(() => ({
 			]
 		}
 	},
-	include: ["esm-dep > cjs-dep"],
-	resolve: {
-		alias: {
-			// eslint-disable-next-line no-undef
-			"@": resolve(__dirname, "./src")
-		}
-	},
-	plugins: [react()]
+
+	plugins: [react(), reactRefresh()]
 }));
