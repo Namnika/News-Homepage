@@ -25,12 +25,8 @@ module.exports = {
 		ecmaVersion: "latest",
 		sourceType: "module"
 	},
-	plugins: ["react", "react-refresh"],
+	plugins: [],
 	rules: {
-		"react-refresh/only-export-components": [
-			"warn",
-			{ allowConstantExport: true }
-		],
 		"react/react-in-jsx-scope": "off"
 	}
 };
