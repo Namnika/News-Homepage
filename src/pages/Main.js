@@ -11,14 +11,14 @@ export default function Main() {
 			<Navbar />
 
 			{/* Main content */}
-			<div className="big-block my-16 h-5/6 border-2 border-black">
-				<div >
+			<div className="big-block grid grid-cols-3 gap-8 my-16 h-5/6 border-2 border-black">
+				<div className="bg-amber-200 row-span-2 col-span-2">
 					{/* main news */}
 				</div>
-				<div>
+				<div className=" bg-lime-300 row-span-2">
 					{/* Trending block */}
 				</div>
-				<div>
+				<div className="bg-teal-200 col-span-3">
 					{/* Popular block */}
 				</div>
 			</div>
