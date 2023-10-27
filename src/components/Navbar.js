@@ -35,10 +35,10 @@ export default function Navbar() {
 					<img src={Logo} alt="logo" />
 				</a>
 
-				<div className="flex w-68 py-2 align-middle absolute right-0">
+				<div className="flex w-68 py-2 relative ml-auto align-middle">
 					{/* Destop Navigation */}
 
-					<ul className="lg:flex hidden font-['Inter-Regular'] text-base flex-row items-center">
+					<ul className="lg:flex hidden font-['Inter-Regular'] -right-[1.3rem] relative text-base flex-row items-end">
 						{navLinks.map((link, index) => {
 							return (
 								<>
@@ -53,7 +53,7 @@ export default function Navbar() {
 						})}
 					</ul>
 					{/* Mobile Navigation */}
-					<a className="lg:hidden delay-150 cursor-pointer">
+					<a className="lg:hidden delay-150 cursor-pointer ">
 						<img
 							src={IconMenu}
 							onClick={() => setNavToggled(!navToggled)}
