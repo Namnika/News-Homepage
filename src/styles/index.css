@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: "Inter-Regular";
+	src:
+		local("Inter-Regular"),
+		url("../assets/fonts/static/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Inter-Bold";
+	src: local("Inter-Bold"), url("../assets/fonts/static/Inter-Bold.ttf"),
+		format("truetype");
+}
+
+@font-face {
+	font-family: "Inter-ExtraBold";
+	src: local("Inter-ExtraBold"),
+		url("../assets/fonts/static/Inter-ExtraBold.ttf"), format("truetype");
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
