@@ -12,9 +12,9 @@ export default function Main() {
 
 			{/* Main content */}
 			<div className=" mx-auto my-16">
-				<div className="big-block grid h-5/6 lg:grid-cols-2  lg:gap-8 border-2 border-black">
+				<div className="big-block grid h-5/6 lg:grid-cols-3  lg:gap-8 border-2 border-black">
 
-					<div className="bg-amber-200  row-span-2 ">
+					<div className="bg-amber-200 col-span-2  row-span-2 ">
 						{/* main news */}
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
 					</div>
