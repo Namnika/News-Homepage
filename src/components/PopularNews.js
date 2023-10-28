@@ -30,12 +30,12 @@ export const PopularData = [
 
 export default function PopularNews() {
 	return <div className=''>
-		<div className='flex flex-row'>
-			<img src={RetroImg} width={120} alt='retro-img' />
-			<div className='flex-col'>
-				<span className="text-5xl text-[color:hsl(233,8%,79%)] font-['Inter-Bold']">01</span>
-				<div className="text-2xl font-['Inter-Bold'] text-[color:hsl(240,100%,5%)]">Reviving Retro PCs</div>
-				<p></p>
+		<div className='flex flex-row '>
+			<img src={RetroImg} className="mr-7" width={120} alt='retro-img' />
+			<div className='flex-col w-56 text-left antialiased'>
+				<span className="text-4xl text-[color:hsl(233,8%,79%)] font-['Inter-Bold']">01</span>
+				<div className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] hover:text-[color:hsl(5,85%,63%)]">Reviving Retro PCs</div>
+				<p className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2">What happens when old PCs are given modern upgrades?</p>
 			</div>
 		</div>
 		<div>

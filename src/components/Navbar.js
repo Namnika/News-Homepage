@@ -38,13 +38,13 @@ export default function Navbar() {
 				<div className="flex w-68 py-2 relative ml-auto align-middle">
 					{/* Destop Navigation */}
 
-					<ul className="lg:flex hidden font-['Inter-Regular'] -right-[1.3rem] relative text-base flex-row items-end">
+					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative text-base flex-row items-end">
 						{navLinks.map((link, index) => {
 							return (
 								<>
 									<a
 										key={index}
-										className="px-5 hover:text-[color:hsl(35,77%,62%)]"
+										className="px-5 hover:text-[color:hsl(5,85%,63%)]"
 									>
 										<li>{link.title}</li>
 									</a>
