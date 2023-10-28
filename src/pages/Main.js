@@ -30,7 +30,7 @@ export default function Main() {
 					</div>
 				</div>
 				{/* Popular block */}
-				<div className="border-2 border-black my-8 relative ">
+				<div className="my-8 relative ">
 					<PopularNews />
 				</div>
 			</div>
