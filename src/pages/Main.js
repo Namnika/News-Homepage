@@ -5,14 +5,14 @@ import "../styles/index.css";
 
 export default function Main() {
 	return (
-		<div className="bg-[color:hsl(36,100%,99%)] overflow-hidden lg:py-24 lg:px-36 py-8 px-8 w-full text-center h-screen">
+		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:py-24 lg:px-36 py-8 px-8 w-full text-center h-screen">
 			{/* Navbar */}
 
 			<Navbar />
 
 			{/* Main content */}
 			<div className=" mx-auto my-16">
-				<div className="big-block grid h-5/6 lg:grid-cols-3  lg:gap-8 border-2 border-black">
+				<div className="big-block grid h-5/6 gap-y-8 lg:grid-cols-3 lg:gap-8 border-2 border-black">
 
 					<div className="bg-amber-200 col-span-2  row-span-2 ">
 						{/* main news */}
@@ -26,7 +26,7 @@ export default function Main() {
 
 				</div>
 				{/* Popular block */}
-				<div className="border-2 border-black relative flex lg:flex-row md:flex-col my-7">
+				<div className="border-2 border-black my-8 relative ">
 					<PopularNews />
 				</div>
 			</div>
