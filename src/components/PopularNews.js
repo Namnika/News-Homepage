@@ -72,22 +72,6 @@ export default function PopularNews() {
 					);
 				})}
 			</div>
-
-			{/* {PopularData.map((data, index) => {
-			return <>
-
-
-					<img src={data.imgURL} key={index} width={120} alt='retro-img' />
-									
-						<span key={index} className="text-4xl text-[color:hsl(233,8%,79%)] font-['Inter-Bold']">{data.headlinenum}</span>
-
-						<h4 key={index} className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] hover:text-[color:hsl(5,85%,63%)]">{data.headline}</h4>
-
-						<p key={index} className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-3 leading-7">{data.desc}</p>
-					
-				
-			</>
-		})} */}
 		</>
 	);
 }
