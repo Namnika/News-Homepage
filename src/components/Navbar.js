@@ -85,7 +85,7 @@ export default function Navbar() {
 									<>
 										<a
 											key={link.id}
-											className="hover:text-[color:hsl(35,77%,62%)]"
+											className="hover:text-[color:hsl(5,85%,63%)]"
 										>
 											<li key={index}>{link.title}</li>
 										</a>
