@@ -5,7 +5,7 @@ import "../styles/index.css";
 
 export default function Main() {
 	return (
-		<div className="bg-slate-50 lg:overflow-hidden overflow-y-scroll lg:py-24 lg:px-36 py-8 px-8 w-full text-center h-screen">
+		<div className="bg-[color:hsl(36,100%,99%)] overflow-hidden lg:py-24 lg:px-36 py-8 px-8 w-full text-center h-screen">
 			{/* Navbar */}
 
 			<Navbar />
@@ -26,16 +26,8 @@ export default function Main() {
 
 				</div>
 				{/* Popular block */}
-				<div className="bg-teal-200 flex lg:flex-row flex-col my-7">
-					<div>
-						01
-					</div>
-					<div>
-						02
-					</div>
-					<div>
-						03
-					</div>
+				<div className="bg-teal-200 flex lg:flex-row md:flex-col my-7">
+					<PopularNews />
 				</div>
 			</div>
 		</div>
