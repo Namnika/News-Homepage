@@ -26,7 +26,7 @@ export default function Main() {
 
 				</div>
 				{/* Popular block */}
-				<div className="bg-teal-200 flex lg:flex-row md:flex-col my-7">
+				<div className="border-2 border-black relative flex lg:flex-row md:flex-col my-7">
 					<PopularNews />
 				</div>
 			</div>
