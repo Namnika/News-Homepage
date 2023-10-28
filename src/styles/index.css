@@ -3,23 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-
 	@font-face {
 		font-family: "Inter-Regular";
 		font-weight: 400;
-		src: url("../assets/fonts/static/Inter-Regular.ttf")
+		src: url("../assets/fonts/static/Inter-Regular.ttf");
 	}
 
 	@font-face {
 		font-family: "Inter-Bold";
 		font-weight: 700;
-		src: url("../assets/fonts/static/Inter-Bold.ttf")
+		src: url("../assets/fonts/static/Inter-Bold.ttf");
 	}
 
 	@font-face {
 		font-family: "Inter-ExtraBold";
 		font-weight: 800;
-		src: url("../assets/fonts/static/Inter-ExtraBold.ttf")
+		src: url("../assets/fonts/static/Inter-ExtraBold.ttf");
 	}
 }
 
