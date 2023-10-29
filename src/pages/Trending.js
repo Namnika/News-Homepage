@@ -35,7 +35,7 @@ export default function Trending() {
 								<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
 									{data.title}
 								</h4>
-								<p className="text-[color:hsl(233,8%,79%)] text-[15px]  font-['Inter-Regular']">
+								<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
 									{data.desc}
 								</p>
 							</div>
