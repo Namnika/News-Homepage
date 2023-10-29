@@ -55,7 +55,7 @@ export default function PopularNews() {
 
 									<h4
 										key={index}
-										className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] hover:text-[color:hsl(5,85%,63%)]"
+										className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] cursor-pointer hover:text-[color:hsl(5,85%,63%)]"
 									>
 										{data.headline}
 									</h4>

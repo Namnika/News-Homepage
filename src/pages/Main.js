@@ -1,6 +1,9 @@
 import Navbar from "../components/Navbar";
-import PopularNews from "../components/PopularNews";
-import Trending from "../components/Trending";
+import PopularNews from "./PopularNews";
+import Trending from "./Trending";
+import Web3ImgDesktop from '../assets/images/image-web-3-desktop.jpg';
+import Web3ImgMobile from '../assets/images/image-web-3-mobile.jpg';
+
 import "../styles/index.css";
 
 export default function Main() {
@@ -15,10 +18,20 @@ export default function Main() {
 					{/* main news */}
 
 					<div className="bg-amber-200 col-span-2  row-span-2 ">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
+						<div>
+							<img src={Web3ImgDesktop} alt="web3-img" />
+						</div>
+						<div className="">
+							<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] text-4xl">
+								The Bright Future of Web 3.0?
+							</h2>
+							<p>
+								We dive
+								into the next evolution of the web that claims to put the power of the
+								platforms back into the hands of the people. But is it really fulfilling its
+								promise?
+							</p>
+						</div>
 					</div>
 					{/* Trending block */}
 					<div className=" bg-[color:hsl(240,100%,5%)] relative row-span-2">
