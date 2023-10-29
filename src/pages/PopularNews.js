@@ -62,7 +62,7 @@ export default function PopularNews() {
 
 									<p
 										key={index}
-										className="text-base font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2"
+										className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2"
 									>
 										{data.desc}
 									</p>
