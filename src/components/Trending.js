@@ -32,7 +32,7 @@ export default function Trending() {
 					return (
 						<>
 							<div key={index} className="py-5">
-								<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] ">
+								<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] hover:text-[color:hsl(35,77%,62%)]">
 									{data.title}
 								</h4>
 								<p className="text-[color:hsl(233,8%,79%)] text-[15px]  font-['Inter-Regular']">
