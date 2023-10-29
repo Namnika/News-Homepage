@@ -5,21 +5,21 @@ import topImg from "../assets/images/image-top-laptops.jpg";
 
 export const PopularData = [
 	{
-		id: "1",
+		id: 1,
 		headlinenum: "01",
 		imgURL: RetroImg,
 		headline: "Reviving Retro PCs",
 		desc: "What happens when old PCs are given modern upgrades?"
 	},
 	{
-		id: "2",
+		id: 2,
 		headlinenum: "02",
 		imgURL: topImg,
 		headline: "Top 10 Laptops of 2022",
 		desc: "Our best picks for various needs and budgets"
 	},
 	{
-		id: "3",
+		id: 3,
 		headlinenum: "03",
 		imgURL: GamingImg,
 		headline: "The Growth of Gaming",
