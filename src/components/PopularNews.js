@@ -45,7 +45,7 @@ export default function PopularNews() {
 										alt="retro-img"
 									/>
 								</div>
-								<div className="text-left space-x-5 space-y-5 antialiased">
+								<div className="text-left space-x-5 space-y-5 antialiased leading-8">
 									<h3
 										key={index}
 										className="text-4xl text-[color:hsl(233,8%,79%)] ml-5 font-['Inter-Bold']"
@@ -62,7 +62,7 @@ export default function PopularNews() {
 
 									<p
 										key={index}
-										className="text-base font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2 leading-8"
+										className="text-base font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2"
 									>
 										{data.desc}
 									</p>
