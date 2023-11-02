@@ -5,9 +5,6 @@ import Web3ImgDesktop from "../assets/images/image-web-3-desktop.jpg";
 import Web3ImgMobile from "../assets/images/image-web-3-mobile.jpg";
 import Button from "../components/Button";
 import "../styles/index.css";
-/*
-https://play.tailwindcss.com/BMc4TWEQlG
-*/
 
 
 export default function Main() {
@@ -17,9 +14,7 @@ export default function Main() {
 
 			{/* Main content */}
 			<div className=" mx-auto my-16">
-
 				<div className="grid grid-flow-row-dense grid-cols-1 gap-5 lg:grid-cols-3">
-
 
 					{/* content */}
 					<div className=" col-span-2">
@@ -44,7 +39,6 @@ export default function Main() {
 					<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2 justify-center">
 						<Trending />
 					</div>
-
 
 				</div>
 				{/* Popular block */}
