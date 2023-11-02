@@ -20,11 +20,11 @@ export default function Main() {
 					<div className=" col-span-2">
 						<img src={Web3ImgDesktop} className="py-0" alt="web3-img" />
 
-						<div className="grid grid-cols-1 items-center text-start leading-8 md:grid-cols-2">
-							<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold']  text-6xl">
+						<div className="grid grid-cols-1 items-center text-start  md:grid-cols-2">
+							<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-[3.5rem]">
 								The Bright Future of Web 3.0?
 							</h2>
-							<div className="px-5  font-['Inter-Regular']">
+							<div className="px-5 leading-8 font-['Inter-Regular']">
 								<p className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]">
 									We dive into the next evolution of the web that claims to put
 									the power of the platforms back into the hands of the people.
