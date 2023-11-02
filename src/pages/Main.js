@@ -36,7 +36,7 @@ export default function Main() {
 					</div>
 
 					{/* Trending */}
-					<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2 justify-center">
+					<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2">
 						<Trending />
 					</div>
 
