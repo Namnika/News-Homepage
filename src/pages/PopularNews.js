@@ -30,7 +30,7 @@ export const PopularData = [
 export default function PopularNews() {
 	return (
 		<>
-			<div className="grid lg:grid-cols-3 gap-7">
+			<div className="grid lg:grid-cols-3 lg:gap-7 gap-10">
 				{PopularData.map((data, index) => {
 					return (
 						<>

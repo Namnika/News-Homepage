@@ -31,7 +31,7 @@ export default function Trending() {
 				{TrendingData.map((data, index) => {
 					return (
 						<>
-							<div key={index} className="py-5 space-y-5">
+							<div key={index} className="py-5 space-y-2">
 								<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
 									{data.title}
 								</h4>

@@ -14,17 +14,17 @@ export default function Main() {
 
 			{/* Main content */}
 			<div className=" mx-auto my-16">
-				<div className="grid grid-flow-row-dense grid-cols-1 gap-5 lg:grid-cols-3">
+				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
 
 					{/* content */}
 					<div className=" col-span-2">
 						<img src={Web3ImgDesktop} className="py-0" alt="web3-img" />
 
-						<div className="grid grid-cols-1 items-center text-start  md:grid-cols-2">
-							<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-[3.5rem]">
+						<div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
+							<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.5rem]">
 								The Bright Future of Web 3.0?
 							</h2>
-							<div className="px-5 leading-8 font-['Inter-Regular']">
+							<div className="lg:px-5 leading-8 font-['Inter-Regular']">
 								<p className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]">
 									We dive into the next evolution of the web that claims to put
 									the power of the platforms back into the hands of the people.
@@ -42,7 +42,7 @@ export default function Main() {
 
 				</div>
 				{/* Popular block */}
-				<div className="my-8 relative ">
+				<div className="lg:my-8 my-16 relative ">
 					<PopularNews />
 				</div>
 			</div>
