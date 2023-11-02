@@ -22,16 +22,16 @@ export default function Trending() {
 	return (
 		<div className="px-4 relative antialiased text-start flex flex-col">
 			<div className="pt-5">
-				<h3 className="text-3xl leading-normal font-['Inter-Bold'] text-[color:hsl(35,77%,62%)]">
+				<h3 className="text-4xl leading-normal font-['Inter-Bold'] text-[color:hsl(35,77%,62%)]">
 					New
 				</h3>
 			</div>
 
-			<div className="leading-8 divide-y divide-[color:hsl(236,13%,42%)]">
+			<div className="leading-8 pt-5 divide-y divide-[color:hsl(236,13%,42%)]">
 				{TrendingData.map((data, index) => {
 					return (
 						<>
-							<div key={index} className=" justify-items-stretch">
+							<div key={index} className="py-5 space-y-5">
 								<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
 									{data.title}
 								</h4>
