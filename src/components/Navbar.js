@@ -30,7 +30,7 @@ export default function Navbar() {
 	const [navToggled, setNavToggled] = useState(false);
 	return (
 		<>
-			<div className="flex flex-row w-full z-0 relative">
+			<div className="flex flex-row bg-white top-0 left-0 h-20 items-center z-10 w-full relative">
 				<a href="#">
 					<img src={Logo} alt="logo" />
 				</a>
@@ -38,7 +38,7 @@ export default function Navbar() {
 				<div className="flex w-68 py-2 relative ml-auto align-middle">
 					{/* Destop Navigation */}
 
-					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative text-base flex-row items-end">
+					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
 						{navLinks.map((link, index) => {
 							return (
 								<>
