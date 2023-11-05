@@ -30,7 +30,7 @@ export default function Navbar() {
 	const [navToggled, setNavToggled] = useState(false);
 	return (
 		<>
-			<div className=" flex  flex-row w-full z-0 relative">
+			<div className="flex flex-row w-full z-0 relative">
 				<a href="#">
 					<img src={Logo} alt="logo" />
 				</a>
