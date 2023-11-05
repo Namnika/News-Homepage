@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import PopularNews from "./PopularNews";
-import Trending from "./Trending";
+import TrendingNews from "./TrendingNews";
 import Web3ImgDesktop from "../assets/images/image-web-3-desktop.jpg";
 import Web3ImgMobile from "../assets/images/image-web-3-mobile.jpg";
 import Button from "../components/Button";
@@ -36,7 +36,7 @@ export default function Main() {
 
 					{/* Trending */}
 					<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2">
-						<Trending />
+						<TrendingNews />
 					</div>
 				</div>
 				{/* Popular block */}
