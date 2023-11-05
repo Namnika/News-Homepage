@@ -1,9 +1,9 @@
 import "../styles/index.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 Button.propTypes = {
 	children: PropTypes.any
-}
+};
 
 export default function Button({ children }) {
 	return (
