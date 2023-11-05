@@ -62,40 +62,42 @@ export default function Navbar() {
 					</a>
 				</div>
 			</div>
-			{/* after toggling an overlay of links */}
 
 			{navToggled ? (
-				<>
-					<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
-
-					<div className="h-screen absolute z-50 top-0 right-0 w-[65%] bg-slate-50  border-white">
-						<a className="absolute  align-middle py-8 px-8 right-0 ">
-							<img
-								className="w-9 h-10 delay-150 cursor-pointer py-1"
-								src={IconMenuClose}
-								onClick={() => {
-									setNavToggled(!navToggled);
-								}}
-								alt="icon-menu-close"
-							/>
-						</a>
-						<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
-							{navLinks.map((link, index) => {
-								return (
-									<>
-										<a
-											key={link.id}
-											className="hover:text-[color:hsl(5,85%,63%)]"
-										>
-											<li key={index}>{link.title}</li>
-										</a>
-									</>
-								);
-							})}
-						</ul>
-					</div>
-				</>
+				<MobileMenu navOpen={navToggled} setNavOpen={setNavToggled} />
 			) : null}
+		</>
+	);
+}
+
+export function MobileMenu({ navOpen, setNavOpen }) {
+	return (
+		<>
+			<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
+
+			<div className="h-screen absolute z-50 top-0 right-0 w-[65%] bg-slate-50  border-white">
+				<a className="absolute  align-middle py-8 px-8 right-0 ">
+					<img
+						className="w-9 h-10 delay-150 cursor-pointer py-1"
+						src={IconMenuClose}
+						onClick={() => {
+							setNavOpen(!navOpen);
+						}}
+						alt="icon-menu-close"
+					/>
+				</a>
+				<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
+					{navLinks.map((link, index) => {
+						return (
+							<>
+								<a key={link.id} className="hover:text-[color:hsl(5,85%,63%)]">
+									<li key={index}>{link.title}</li>
+								</a>
+							</>
+						);
+					})}
+				</ul>
+			</div>
 		</>
 	);
 }
