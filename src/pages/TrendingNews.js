@@ -18,7 +18,7 @@ export const TrendingData = [
 	}
 ];
 
-export default function Trending() {
+export default function TrendingNews() {
 	return (
 		<div className="px-4 relative antialiased text-start flex flex-col">
 			<div className="pt-5">
