@@ -4,6 +4,7 @@ import Trending from "./Trending";
 import Web3ImgDesktop from "../assets/images/image-web-3-desktop.jpg";
 import Web3ImgMobile from "../assets/images/image-web-3-mobile.jpg";
 import Button from "../components/Button";
+import Footer from "../components/Footer";
 import "../styles/index.css";
 
 export default function Main() {
@@ -43,6 +44,7 @@ export default function Main() {
 					<PopularNews />
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }
