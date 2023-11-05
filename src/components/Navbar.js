@@ -3,6 +3,8 @@ import Logo from "../assets/images/logo.svg";
 import IconMenu from "../assets/images/icon-menu.svg";
 import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import { useState } from "react";
+import PropTypes from 'prop-types';
+
 export const navLinks = [
 	{
 		id: "home",
@@ -25,6 +27,11 @@ export const navLinks = [
 		title: "Categories"
 	}
 ];
+
+MobileMenu.propTypes = {
+	navOpen: PropTypes.bool,
+	setNavOpen: PropTypes.func
+}
 
 export default function Navbar() {
 	const [navToggled, setNavToggled] = useState(false);
