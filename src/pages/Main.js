@@ -8,11 +8,11 @@ import "../styles/index.css";
 
 export default function Main() {
 	return (
-		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:py-24 lg:px-28 py-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
+		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
 			<Navbar />
 
 			{/* Main content */}
-			<div className=" mx-auto my-16">
+			<div className=" mx-auto my-4">
 				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
 					{/* content */}
 					<div className=" col-span-2">
