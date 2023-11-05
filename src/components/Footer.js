@@ -1,16 +1,18 @@
 export default function Footer() {
     return (
         <>
-            <footer className="py-24 ">
-                <div className="grid lg:grid-cols-5 grid-rows-2 border-t-2 border-slate-500 gap-6">
-                    <div class="lg:col-span-2 lg:col-start-1 text-start">
-
-                        <a href="#" target="_blank" className="text-[color:hsl(236,13%,42%)]">
+            <footer className="py-12 lg:py-24">
+                <div className="flex flex-col lg:flex-row-reverse w-full border-t-[0.7px] space-y-5 space-x-4 text-center border-[color:hsl(233,8%,79%)]">
+                    <div class="lg:text-right">social links</div>
+                    <div class="lg:text-start text-[13px] font-['Inter-Regular'] ml-auto text-[color:hsl(236,13%,42%)]">
+                        &copy; 2023 by
+                        <a href="https://www.namnika-janbandhu.com" target="_blank" className="hover:text-[color:hsl(240,100%,5%)]"> {" "}
+                            Namnika Janbandhu
                             {" "}
-                            this is footer
                         </a>
+                        &mdash; Made with 💜
                     </div>
-                    <div class="lg:col-span-2 lg:col-end-6 lg:text-right">social links</div>
+
 
                 </div>
             </footer>
@@ -18,15 +20,4 @@ export default function Footer() {
     );
 }
 
-/* .attribution {
-    font-size: 11px;
-    text-align: center;
-  }
-  .attribution a {
-    color: hsl(228, 45%, 44%);
-  } */
-
-// https://play.tailwindcss.com/V7irubSNcJ
-
-// &copy; dynamic year by me(portfolio link) &mdash; Made with 💜
 // social link : twitter, github, linkedin
