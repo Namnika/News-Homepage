@@ -13,7 +13,7 @@ export default function Main() {
 			<Navbar />
 
 			{/* Main content */}
-			<div className=" mx-auto my-4">
+			<div className=" mx-auto lg:mt-4 lg:mb-16 my-4">
 				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
 					{/* content */}
 					<div className=" col-span-2">
