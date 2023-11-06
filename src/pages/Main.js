@@ -40,7 +40,7 @@ export default function Main() {
 					</div>
 				</div>
 				{/* Popular block */}
-				<div className="lg:my-8 my-16 relative ">
+				<div className="lg:my-8 mt-16 mb-20 relative ">
 					<PopularNews />
 				</div>
 			</div>
