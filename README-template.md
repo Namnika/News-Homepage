@@ -16,15 +16,11 @@ Get all the latest and greatest topics, across multiple languages, all in one co
 ## Overview
 
 ### Goal
-
-Users should be able to:
-
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+To make this responsive website more interactive by switching the nav links and getting access to various categories of trending news such as sports, lifestyle, and business in several languages on only one page.
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Website Design](./screenshot.jpg)
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
