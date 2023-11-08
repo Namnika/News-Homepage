@@ -41,6 +41,4 @@ To make this responsive website more interactive by switching the nav links and 
 ### Useful resources
 
 - [News Catcher API](https://www.newscatcherapi.com/) - This will be going to help me for getting various news topics along with categories.
-- [](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [react-18next](https://react.i18next.com/) - This library will help to translate the whole website.
