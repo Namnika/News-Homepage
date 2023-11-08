@@ -1,28 +1,21 @@
-# :newspaper: News homepage
+# 🗞️ News homepage
 
-This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+Get all the latest and greatest topics, across multiple languages, all in one convenient location!
 
 ## Table of contents
 
-- [:newspaper: News homepage](#newspaper-news-homepage)
-  - [Table of contents](#table-of-contents)
+- [Table of contents](#table-of-contents)
   - [Overview](#overview)
-    - [The challenge](#the-challenge)
+    - [Goal](#goal)
     - [Screenshot](#screenshot)
-    - [Links](#links)
-  - [My process](#my-process)
+    - [Link](#link)
+  - [Process](#process)
     - [Built with](#built-with)
-    - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
-  - [Author](#author)
-  - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
-### The challenge
+### Goal
 
 Users should be able to:
 
@@ -41,12 +34,12 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 **Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
-### Links
+### Link
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-## My process
+## Process
 
 ### Built with
 
