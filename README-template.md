@@ -16,7 +16,7 @@ Get all the latest and greatest topics, across multiple languages, all in one co
 ## Overview
 
 ### Goal
-To make this responsive website more interactive by switching the nav links and getting access to various categories of trending news such as sports, lifestyle, and business in several languages on only one page.
+To make this responsive website more interactive by switching the nav links and getting access to various categories of trending news such as sports, lifestyle, and business using [News Catcher API](https://www.newscatcherapi.com/) on only one page.
 
 ### Screenshot
 
