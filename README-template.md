@@ -16,11 +16,12 @@ Get all the latest and greatest topics, across multiple languages, all in one co
 ## Overview
 
 ### Goal
-To make this responsive website more interactive by switching the nav links and getting access to various categories of trending news such as sports, lifestyle, and business using [News Catcher API](https://www.newscatcherapi.com/) on only one page.
+
+I want to make this responsive website more interactive by switching the nav links and getting access to various categories of trending news such as sports, lifestyle, and business, etc. using [News Catcher API](https://www.newscatcherapi.com/) on only one page.
 
 ### Screenshot
 
-![Website Design](./screenshot.jpg)
+![Website Design](/public/screenshot.png)
 
 ### Link
 
@@ -35,6 +36,7 @@ To make this responsive website more interactive by switching the nav links and 
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- [Vite](https://vitejs.dev/) - For performance
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
 
 
