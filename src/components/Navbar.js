@@ -3,44 +3,76 @@ import Logo from "../assets/images/logo.svg";
 import IconMenu from "../assets/images/icon-menu.svg";
 import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
+import GamingImg from "../assets/images/image-gaming-growth.jpg";
+import RetroImg from "../assets/images/image-retro-pcs.jpg";
+import topImg from "../assets/images/image-top-laptops.jpg";
+
 
 export const navLinks = [
 	{
-		id: "home",
-		title: "Home",
-		url: "#"
-	},
-	{
-		id: "news",
-		title: "News",
-		url: "#"
-	},
-	{
 		id: "popular",
 		title: "Popular",
-		url: '#popular'
+		url: '#popular',
+		data: [
+			{
+				id: 1,
+				headlinenum: "01",
+				imgURL: RetroImg,
+				headline: "Reviving Retro PCs",
+				desc: "What happens when old PCs are given modern upgrades?"
+			},
+			{
+				id: 2,
+				headlinenum: "02",
+				imgURL: topImg,
+				headline: "Top 10 Laptops of 2022",
+				desc: "Our best picks for various needs and budgets"
+			},
+			{
+				id: 3,
+				headlinenum: "03",
+				imgURL: GamingImg,
+				headline: "The Growth of Gaming",
+				desc: "How the pandemic has sparked fresh opportunities."
+			}
+		]
 	},
 	{
 		id: "trending",
 		title: "Trending",
-		url: '#trending'
+		url: '#trending',
+		data: [
+			{
+				id: 4,
+				name: "Hydrogen VS Electric Cars",
+				desc: "Will hydrogen-fueled cars ever catch up to EVs?"
+			},
+			{
+				id: 5,
+				name: "The Downsides of AI Artistry",
+				desc: "What are the possible adverse effects of on-demand AI image generation?"
+			},
+			{
+				id: 6,
+				name: "Is VC Funding Drying Up?",
+				desc: "Private funding by VC firms is down 50% YOY. We take a look at what that means."
+			}
+		]
 	},
-	{
-		id: "categories",
-		title: "Categories",
-		url: "#categories"
-	}
+
 ];
 
 MobileMenu.propTypes = {
 	navOpen: PropTypes.bool,
-	setNavOpen: PropTypes.func
+	setNavOpen: PropTypes.func,
+	navigate: PropTypes.func
 };
 
 export default function Navbar() {
 	const [navToggled, setNavToggled] = useState(false);
+	const navigate = useNavigate()
 	return (
 		<>
 			<div className="flex flex-row bg-white top-0 left-0 h-20 items-center z-10 w-full relative">
@@ -52,17 +84,14 @@ export default function Navbar() {
 					{/* Destop Navigation */}
 
 					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
-						{navLinks.map((link) => {
-							return (
-								<>
-									<li key={link.id} className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-										<Link to={link.url}>
-											{link.title}
-										</Link>
-									</li>
-								</>
-							);
-						})}
+
+						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]" onClick={() => navigate('', {
+							state: ''
+						})}><Link to={''} >
+								Home
+							</Link>
+						</li>
+
 					</ul>
 					{/* Mobile Navigation */}
 					<a className="lg:hidden delay-150 cursor-pointer ">
@@ -76,13 +105,13 @@ export default function Navbar() {
 			</div>
 
 			{navToggled && (
-				<MobileMenu navOpen={navToggled} setNavOpen={setNavToggled} />
+				<MobileMenu navOpen={navToggled} navigate={navigate} setNavOpen={setNavToggled} />
 			)}
 		</>
 	);
 }
 
-export function MobileMenu({ navOpen, setNavOpen }) {
+export function MobileMenu({ navOpen, setNavOpen, navigate }) {
 	return (
 		<>
 			<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
@@ -102,14 +131,16 @@ export function MobileMenu({ navOpen, setNavOpen }) {
 					{navLinks.map((link) => {
 						return (
 							<>
-								<li key={link.id} className="hover:text-[color:hsl(5,85%,63%)]">
-									<Link to={link.url}>{link.title}</Link>
-								</li>
+								<li key={link.id} className="hover:text-[color:hsl(5,85%,63%)]" onClick={() => navigate(link.url, {
+									state: link.data
+								})}>
+									<Link to={link.url} >{link.title}</Link>
+								</li >
 							</>
 						);
 					})}
 				</ul>
-			</div>
+			</div >
 		</>
 	);
 }

@@ -39,7 +39,6 @@ I want to make this responsive website more interactive by switching the nav lin
 - [Vite](https://vitejs.dev/) - For performance
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
 
-
 ### Useful resources
 
 - [News Catcher API](https://www.newscatcherapi.com/) - This will be going to help me for getting various news topics along with categories.

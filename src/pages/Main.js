@@ -1,8 +1,9 @@
+// axios
 import Navbar from "../components/Navbar";
 import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
 import Web3ImgDesktop from "../assets/images/image-web-3-desktop.jpg";
-import Web3ImgMobile from "../assets/images/image-web-3-mobile.jpg";
+// import Web3ImgMobile from "../assets/images/image-web-3-mobile.jpg";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
 import "../styles/index.css";
