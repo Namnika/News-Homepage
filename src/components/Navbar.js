@@ -3,28 +3,34 @@ import Logo from "../assets/images/logo.svg";
 import IconMenu from "../assets/images/icon-menu.svg";
 import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 export const navLinks = [
 	{
 		id: "home",
-		title: "Home"
+		title: "Home",
+		url: "#"
 	},
 	{
 		id: "news",
-		title: "News"
+		title: "News",
+		url: "#"
 	},
 	{
 		id: "popular",
-		title: "Popular"
+		title: "Popular",
+		url: '#popular'
 	},
 	{
 		id: "trending",
-		title: "Trending"
+		title: "Trending",
+		url: '#trending'
 	},
 	{
 		id: "categories",
-		title: "Categories"
+		title: "Categories",
+		url: "#categories"
 	}
 ];
 
@@ -46,15 +52,14 @@ export default function Navbar() {
 					{/* Destop Navigation */}
 
 					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
-						{navLinks.map((link, index) => {
+						{navLinks.map((link) => {
 							return (
 								<>
-									<a
-										key={index}
-										className="px-5 hover:text-[color:hsl(5,85%,63%)]"
-									>
-										<li>{link.title}</li>
-									</a>
+									<li key={link.id} className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+										<Link to={link.url}>
+											{link.title}
+										</Link>
+									</li>
 								</>
 							);
 						})}
@@ -70,9 +75,9 @@ export default function Navbar() {
 				</div>
 			</div>
 
-			{navToggled ? (
+			{navToggled && (
 				<MobileMenu navOpen={navToggled} setNavOpen={setNavToggled} />
-			) : null}
+			)}
 		</>
 	);
 }
@@ -94,12 +99,12 @@ export function MobileMenu({ navOpen, setNavOpen }) {
 					/>
 				</a>
 				<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
-					{navLinks.map((link, index) => {
+					{navLinks.map((link) => {
 						return (
 							<>
-								<a key={link.id} className="hover:text-[color:hsl(5,85%,63%)]">
-									<li key={index}>{link.title}</li>
-								</a>
+								<li key={link.id} className="hover:text-[color:hsl(5,85%,63%)]">
+									<Link to={link.url}>{link.title}</Link>
+								</li>
 							</>
 						);
 					})}
