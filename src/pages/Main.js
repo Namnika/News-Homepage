@@ -1,14 +1,37 @@
-// axios
+import axios from "axios";
 import Navbar from "../components/Navbar";
 import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
 import Web3ImgDesktop from "../assets/images/image-web-3-desktop.jpg";
-// import Web3ImgMobile from "../assets/images/image-web-3-mobile.jpg";
 import Button from "../components/Button";
+import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import "../styles/index.css";
 
 export default function Main() {
+	const [news, setNews] = useState();
+	const [error, setError] = useState({});
+	const baseurl = "https://newsapi.org/v2/everything";
+	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
+
+	const fetchData = async (url) => {
+		return await axios
+			.get(url)
+			.then((res) => {
+				console.log(res.data.data);
+			})
+			.catch((err) => {
+				setError(err.response.data);
+				console.log("Error:" + err.response.data.status);
+			});
+	};
+
+	useEffect(() => {
+		const data = fetchData(`${baseurl}?apiKey=${apiKey}`);
+		setNews(data.toString());
+		// console.log(`Data:${setNews(data.toString())}`);
+	}, [setNews]);
+
 	return (
 		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
 			<Navbar />
