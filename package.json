@@ -16,7 +16,7 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"dev": "vite",
+		"start": "react-scripts start",
 		"build": "vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
@@ -41,6 +41,7 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"@vitejs/plugin-react": "^4.1.0",
 		"autoprefixer": "^10.4.16",
 		"eslint": "^8.52.0",
