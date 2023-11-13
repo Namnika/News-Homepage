@@ -29,6 +29,12 @@ export default function Main() {
 
 	const slicedNews = news.slice(0, 1);
 
+	/*
+	const topics = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+const t= Math.floor(Math.random(topics.map((t) => t)) * topics.length)
+console.log(topics[t])
+	*/
+
 	return (
 		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
 			<Navbar />
