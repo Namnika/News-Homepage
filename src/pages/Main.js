@@ -9,7 +9,7 @@ import "../styles/index.css";
 
 export default function Main() {
 	const [news, setNews] = useState([]);
-	const [setError] = useState({});
+	const [error, setError] = useState({});
 	const baseurl = "https://newsapi.org/v2/everything";
 	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
 
@@ -23,17 +23,35 @@ export default function Main() {
 			});
 	};
 
+	const topics = [
+		"bitcoin",
+		"apple",
+		"trump",
+		"google",
+		"microsoft",
+		"amazon",
+		"world",
+		"artificialintelligence",
+		"netflix",
+		"art"
+	];
+
 	useEffect(() => {
-		fetchData(`${baseurl}?q=bitcoin&apiKey=${apiKey}`);
+		const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+		try {
+			sleep(5000);
+			const query = Math.floor(
+				Math.random(topics.map((q) => q)) * topics.length
+			);
+
+			fetchData(`${baseurl}?q=${topics[query]}&apiKey=${apiKey}`);
+		} catch (err) {
+			setError(err.response.data);
+		}
 	}, []);
 
 	const slicedNews = news.slice(0, 1);
-
-	/*
-	const topics = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-const t= Math.floor(Math.random(topics.map((t) => t)) * topics.length)
-console.log(topics[t])
-	*/
+	// initialize using localstorage with hard code
 
 	return (
 		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
