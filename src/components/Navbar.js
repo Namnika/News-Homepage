@@ -3,18 +3,17 @@ import Logo from "../assets/images/logo.svg";
 import IconMenu from "../assets/images/icon-menu.svg";
 import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import { useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import GamingImg from "../assets/images/image-gaming-growth.jpg";
 import RetroImg from "../assets/images/image-retro-pcs.jpg";
 import topImg from "../assets/images/image-top-laptops.jpg";
 
-
 export const navLinks = [
 	{
 		id: "popular",
 		title: "Popular",
-		url: '#popular',
+		url: "#popular",
 		data: [
 			{
 				id: 1,
@@ -42,7 +41,7 @@ export const navLinks = [
 	{
 		id: "trending",
 		title: "Trending",
-		url: '#trending',
+		url: "#trending",
 		data: [
 			{
 				id: 4,
@@ -60,19 +59,17 @@ export const navLinks = [
 				desc: "Private funding by VC firms is down 50% YOY. We take a look at what that means."
 			}
 		]
-	},
-
+	}
 ];
 
 MobileMenu.propTypes = {
 	navOpen: PropTypes.bool,
-	setNavOpen: PropTypes.func,
-	navigate: PropTypes.func
+	setNavOpen: PropTypes.func
 };
 
 export default function Navbar() {
 	const [navToggled, setNavToggled] = useState(false);
-	const navigate = useNavigate()
+
 	return (
 		<>
 			<div className="flex flex-row bg-white top-0 left-0 h-20 items-center z-10 w-full relative">
@@ -84,14 +81,21 @@ export default function Navbar() {
 					{/* Destop Navigation */}
 
 					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
-
-						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]" onClick={() => navigate('', {
-							state: ''
-						})}><Link to={''} >
-								Home
-							</Link>
+						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+							<Link to={"/"}>Home</Link>
 						</li>
-
+						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+							<Link to={"/"}>News</Link>
+						</li>
+						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+							<Link to={"#popular"}>Popular</Link>
+						</li>
+						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+							<Link to={"#trending"}>Trending</Link>
+						</li>
+						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+							<Link to={"#categories"}>Categories</Link>
+						</li>
 					</ul>
 					{/* Mobile Navigation */}
 					<a className="lg:hidden delay-150 cursor-pointer ">
@@ -105,13 +109,17 @@ export default function Navbar() {
 			</div>
 
 			{navToggled && (
-				<MobileMenu navOpen={navToggled} navigate={navigate} setNavOpen={setNavToggled} />
+				<MobileMenu
+					navOpen={navToggled}
+					navigate={navigate}
+					setNavOpen={setNavToggled}
+				/>
 			)}
 		</>
 	);
 }
 
-export function MobileMenu({ navOpen, setNavOpen, navigate }) {
+export function MobileMenu({ navOpen, setNavOpen }) {
 	return (
 		<>
 			<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
@@ -128,19 +136,23 @@ export function MobileMenu({ navOpen, setNavOpen, navigate }) {
 					/>
 				</a>
 				<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
-					{navLinks.map((link) => {
-						return (
-							<>
-								<li key={link.id} className="hover:text-[color:hsl(5,85%,63%)]" onClick={() => navigate(link.url, {
-									state: link.data
-								})}>
-									<Link to={link.url} >{link.title}</Link>
-								</li >
-							</>
-						);
-					})}
+					<li className="hover:text-[color:hsl(5,85%,63%)]">
+						<Link to={"/"}>Home</Link>
+					</li>
+					<li className="hover:text-[color:hsl(5,85%,63%)]">
+						<Link to={"/"}>News</Link>
+					</li>
+					<li className="hover:text-[color:hsl(5,85%,63%)]">
+						<Link to={"#popular"}>Popular</Link>
+					</li>
+					<li className="hover:text-[color:hsl(5,85%,63%)]">
+						<Link to={"#trending"}>Trending</Link>
+					</li>
+					<li className="hover:text-[color:hsl(5,85%,63%)]">
+						<Link to={"#categories"}>Categories</Link>
+					</li>
 				</ul>
-			</div >
+			</div>
 		</>
 	);
 }
