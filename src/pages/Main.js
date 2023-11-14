@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
 import Button from "../components/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Footer from "../components/Footer";
 import "../styles/index.css";
 
@@ -12,16 +12,20 @@ export default function Main() {
 	const [error, setError] = useState({});
 	const baseurl = "https://newsapi.org/v2/everything";
 	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
-
+	// set env variable for apikey using vite
 	// use useFetch hook
-	const fetchData = async (url) => {
-		return await axios
-			.get(url)
-			.then((res) => setNews(res.data.articles))
-			.catch((err) => {
-				setError(err.response.data);
-			});
-	};
+	const fetchData = useCallback(
+		async (url) => {
+			return await axios
+				.get(url)
+				.then((res) => setNews(res.data.articles))
+				.catch((err) => {
+					setError(err.response.data);
+					console.log(error);
+				});
+		},
+		[error]
+	);
 
 	const topics = [
 		"bitcoin",
@@ -31,27 +35,28 @@ export default function Main() {
 		"microsoft",
 		"amazon",
 		"world",
-		"artificialintelligence",
+		"artificial-intelligence",
 		"netflix",
 		"art"
 	];
+
+	const query = Math.floor(Math.random(topics.map((q) => q)) * topics.length);
+
+	const q = topics[query];
 
 	useEffect(() => {
 		const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 		try {
 			sleep(5000);
-			const query = Math.floor(
-				Math.random(topics.map((q) => q)) * topics.length
-			);
 
-			fetchData(`${baseurl}?q=${topics[query]}&apiKey=${apiKey}`);
+			fetchData(`${baseurl}?q=${q}&apiKey=${apiKey}`);
 		} catch (err) {
 			setError(err.response.data);
 		}
-	}, []);
+	}, [fetchData, q]);
 
 	const slicedNews = news.slice(0, 1);
-	// initialize using localstorage with hard code
+	// initialize data using localstorage
 
 	return (
 		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../styles/index.css";
 
 export default function PopularNews() {
@@ -8,15 +8,18 @@ export default function PopularNews() {
 	const baseurl = "https://newsapi.org/v2/top-headlines";
 	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
 
-	// use useFetch hook
-	const fetchData = async (url) => {
-		return await axios
-			.get(url)
-			.then((res) => setPopularNews(res.data.articles))
-			.catch((err) => {
-				setError(err.response.data);
-			});
-	};
+	const fetchData = useCallback(
+		async (url) => {
+			return await axios
+				.get(url)
+				.then((res) => setPopularNews(res.data.articles))
+				.catch((err) => {
+					setError(err.response.data);
+					console.log(error);
+				});
+		},
+		[error]
+	);
 
 	const countries = [
 		"ae",
@@ -63,9 +66,9 @@ export default function PopularNews() {
 		} catch (err) {
 			setError(err.response.data);
 		}
-	}, [ct]);
+	}, [fetchData, ct]);
 
-	const slicedPopularNews = popularNews.slice(0, 3)
+	const slicedPopularNews = popularNews.slice(0, 3);
 
 	return (
 		<>
@@ -84,21 +87,15 @@ export default function PopularNews() {
 									/>
 								</div>
 								<div className="text-left space-x-5 space-y-5 antialiased leading-8">
-									<h3
-										className="text-4xl text-[color:hsl(233,8%,79%)] ml-5 font-['Inter-Bold']"
-									>
+									<h3 className="text-4xl text-[color:hsl(233,8%,79%)] ml-5 font-['Inter-Bold']">
 										0{index + 1}
 									</h3>
 
-									<h4
-										className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] cursor-pointer hover:text-[color:hsl(5,85%,63%)]"
-									>
+									<h4 className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] cursor-pointer hover:text-[color:hsl(5,85%,63%)]">
 										{i.title}
 									</h4>
 
-									<p
-										className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2"
-									>
+									<p className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2">
 										{i.description.slice(0, 170)} + ...
 									</p>
 								</div>
