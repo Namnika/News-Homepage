@@ -5,62 +5,6 @@ import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import GamingImg from "../assets/images/image-gaming-growth.jpg";
-import RetroImg from "../assets/images/image-retro-pcs.jpg";
-import topImg from "../assets/images/image-top-laptops.jpg";
-
-export const navLinks = [
-	{
-		id: "popular",
-		title: "Popular",
-		url: "#popular",
-		data: [
-			{
-				id: 1,
-				headlinenum: "01",
-				imgURL: RetroImg,
-				headline: "Reviving Retro PCs",
-				desc: "What happens when old PCs are given modern upgrades?"
-			},
-			{
-				id: 2,
-				headlinenum: "02",
-				imgURL: topImg,
-				headline: "Top 10 Laptops of 2022",
-				desc: "Our best picks for various needs and budgets"
-			},
-			{
-				id: 3,
-				headlinenum: "03",
-				imgURL: GamingImg,
-				headline: "The Growth of Gaming",
-				desc: "How the pandemic has sparked fresh opportunities."
-			}
-		]
-	},
-	{
-		id: "trending",
-		title: "Trending",
-		url: "#trending",
-		data: [
-			{
-				id: 4,
-				name: "Hydrogen VS Electric Cars",
-				desc: "Will hydrogen-fueled cars ever catch up to EVs?"
-			},
-			{
-				id: 5,
-				name: "The Downsides of AI Artistry",
-				desc: "What are the possible adverse effects of on-demand AI image generation?"
-			},
-			{
-				id: 6,
-				name: "Is VC Funding Drying Up?",
-				desc: "Private funding by VC firms is down 50% YOY. We take a look at what that means."
-			}
-		]
-	}
-];
 
 MobileMenu.propTypes = {
 	navOpen: PropTypes.bool,
@@ -85,7 +29,7 @@ export default function Navbar() {
 							<Link to={"/"}>Home</Link>
 						</li>
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to={"/"}>News</Link>
+							<Link to={"#news"}>News</Link>
 						</li>
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
 							<Link to={"#popular"}>Popular</Link>
@@ -111,7 +55,6 @@ export default function Navbar() {
 			{navToggled && (
 				<MobileMenu
 					navOpen={navToggled}
-					navigate={navigate}
 					setNavOpen={setNavToggled}
 				/>
 			)}
@@ -140,7 +83,7 @@ export function MobileMenu({ navOpen, setNavOpen }) {
 						<Link to={"/"}>Home</Link>
 					</li>
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to={"/"}>News</Link>
+						<Link to={"#news"}>News</Link>
 					</li>
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
 						<Link to={"#popular"}>Popular</Link>
