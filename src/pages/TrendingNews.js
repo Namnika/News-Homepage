@@ -1,9 +1,52 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import "../styles/index.css";
-import { useLocation } from "react-router-dom";
 
 export default function TrendingNews() {
-	const location = useLocation();
-	console.log(location.state);
+	const [trendingNews, setTrendingNews] = useState([]);
+	const [error, setError] = useState({});
+	const baseurl = "https://newsapi.org/v2/top-headlines";
+	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
+
+	// use useFetch hook
+	const fetchData = async (url) => {
+		return await axios
+			.get(url)
+			.then((res) => setTrendingNews(res.data.articles))
+			.catch((err) => {
+				setError(err.response.data);
+			});
+	};
+
+	const sources = [
+		"bbc-news",
+		"abc-news",
+		"forbes",
+		"business-insider",
+		"washington-post",
+		"the-daily-times",
+		"cnn",
+		"billboard"
+	];
+
+	const source = Math.floor(
+		Math.random(sources.map((s) => s)) * sources.length
+	);
+
+	const so = sources[source];
+
+	useEffect(() => {
+		const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+		try {
+			sleep(5000);
+
+			fetchData(`${baseurl}?sources=${so}&apiKey=${apiKey}`);
+		} catch (err) {
+			setError(err.response.data);
+		}
+	}, [so]);
+
+	const slicedTrendingNews = trendingNews.slice(0, 3);
 
 	return (
 		<div className="px-4 relative antialiased text-start flex flex-col">
@@ -14,21 +57,20 @@ export default function TrendingNews() {
 			</div>
 
 			<div className="leading-8 pt-5 divide-y divide-[color:hsl(236,13%,42%)]">
-				{location.state !== null &&
-					location.state.map((data, index) => {
-						return (
-							<>
-								<div key={index} className="py-5 space-y-2">
-									<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
-										{data.name}
-									</h4>
-									<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
-										{data.desc}
-									</p>
-								</div>
-							</>
-						);
-					})}
+				{slicedTrendingNews.map((i) => {
+					return (
+						<>
+							<div className="py-5 space-y-2">
+								<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
+									{i.title}
+								</h4>
+								<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
+									{i.description.slice(0, 160)} + ...
+								</p>
+							</div>
+						</>
+					);
+				})}
 			</div>
 		</div>
 	);
