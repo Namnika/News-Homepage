@@ -29,6 +29,7 @@ export default function TrendingNews() {
 	);
 
 	const trendingNews = news.slice(0, 3);
+	console.log(trendingNews)
 
 	return (
 		<div className="px-4 relative antialiased text-start flex flex-col">

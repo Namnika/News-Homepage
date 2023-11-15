@@ -43,7 +43,6 @@ export default function Main() {
 
 			<div className=" mx-auto lg:mt-4 lg:mb-16 my-4">
 				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
-
 					{/* Main news */}
 					<div className=" col-span-2">
 						{loading ? (
@@ -52,17 +51,27 @@ export default function Main() {
 							slicedNews.map((i, index) => {
 								return (
 									<>
-										<img src={i.urlToImage}
-											key={index} className="py-0" alt="web3-img" />
+										<img
+											src={i.urlToImage}
+											key={index}
+											className="py-0"
+											alt="web3-img"
+										/>
 
 										<div
-											key={index}
+
 											className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
-											<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]">
+											<h2
+												key={index}
+												className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]"
+											>
 												{i.title}
 											</h2>
 											<div className="lg:px-5 leading-8 font-['Inter-Regular']">
-												<p className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]">
+												<p
+													key={index}
+													className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]"
+												>
 													{i.description}
 												</p>
 												<Button>Read More</Button>
@@ -79,7 +88,6 @@ export default function Main() {
 						<TrendingNews />
 					</div>
 				</div>
-
 
 				{/* Popular News */}
 				<div className="lg:my-8 mt-16 mb-20 relative ">
