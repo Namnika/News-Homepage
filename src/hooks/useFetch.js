@@ -9,12 +9,15 @@ export const useFetch = (url, ref, initialvalue) => {
     useEffect(() => {
         if (ref.current) {
             (async () => {
+                const timeout = (ms) =>
+                    new Promise((resolve) => setTimeout(resolve, ms));
                 try {
                     const res = await axios.get(url);
                     setNews(res.data.articles);
                 } catch (err) {
                     setError(err.response.data);
                 } finally {
+                    await timeout(5000);
                     setLoading(false);
                 }
             })();
@@ -25,5 +28,5 @@ export const useFetch = (url, ref, initialvalue) => {
         };
     }, [url, ref]);
 
-    return { loading, news, error }
+    return { loading, news, error };
 };
