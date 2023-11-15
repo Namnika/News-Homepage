@@ -1,31 +1,17 @@
-import axios from "axios";
+// set env variable for apikey using vite
+// initialize data using skeleton hook
 import Navbar from "../components/Navbar";
 import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
 import Button from "../components/Button";
-import { useState, useEffect, useCallback } from "react";
+import { useRef } from "react";
+import { useFetch } from "../hooks/useFetch";
 import Footer from "../components/Footer";
 import "../styles/index.css";
 
 export default function Main() {
-	const [news, setNews] = useState([]);
-	const [error, setError] = useState({});
-	const baseurl = "https://newsapi.org/v2/everything";
+	const isComponentMounted = useRef(true);
 	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
-	// set env variable for apikey using vite
-	// use useFetch hook
-	const fetchData = useCallback(
-		async (url) => {
-			return await axios
-				.get(url)
-				.then((res) => setNews(res.data.articles))
-				.catch((err) => {
-					setError(err.response.data);
-					console.log(error);
-				});
-		},
-		[error]
-	);
 
 	const topics = [
 		"bitcoin",
@@ -41,51 +27,48 @@ export default function Main() {
 	];
 
 	const query = Math.floor(Math.random(topics.map((q) => q)) * topics.length);
-
 	const q = topics[query];
 
-	useEffect(() => {
-		const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-		try {
-			sleep(5000);
-
-			fetchData(`${baseurl}?q=${q}&apiKey=${apiKey}`);
-		} catch (err) {
-			setError(err.response.data);
-		}
-	}, [fetchData, q]);
+	const { news, loading } = useFetch(
+		`https://newsapi.org/v2/everything?q=${q}&apiKey=${apiKey}`,
+		isComponentMounted,
+		[]
+	);
 
 	const slicedNews = news.slice(0, 1);
-	// initialize data using localstorage
 
 	return (
 		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
 			<Navbar />
 
-			{/* Main News */}
 			<div className=" mx-auto lg:mt-4 lg:mb-16 my-4">
 				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
-					{/* content */}
-					<div className=" col-span-2">
-						{slicedNews.map((i) => {
-							return (
-								<>
-									<img src={i.urlToImage} className="py-0" alt="web3-img" />
 
-									<div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
-										<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]">
-											{i.title}
-										</h2>
-										<div className="lg:px-5 leading-8 font-['Inter-Regular']">
-											<p className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]">
-												{i.description.slice(0, 180)} + ...
-											</p>
-											<Button>Read More</Button>
+					{/* Main news */}
+					<div className=" col-span-2">
+						{loading ? (
+							<div>loading data...</div>
+						) : (
+							slicedNews.map((i) => {
+								return (
+									<>
+										<img src={i.urlToImage} className="py-0" alt="web3-img" />
+
+										<div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
+											<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]">
+												{i.title}
+											</h2>
+											<div className="lg:px-5 leading-8 font-['Inter-Regular']">
+												<p className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]">
+													{i.description}
+												</p>
+												<Button>Read More</Button>
+											</div>
 										</div>
-									</div>
-								</>
-							);
-						})}
+									</>
+								);
+							})
+						)}
 					</div>
 
 					{/* Trending News*/}
@@ -93,6 +76,8 @@ export default function Main() {
 						<TrendingNews />
 					</div>
 				</div>
+
+
 				{/* Popular News */}
 				<div className="lg:my-8 mt-16 mb-20 relative ">
 					<PopularNews />
