@@ -49,12 +49,15 @@ export default function Main() {
 						{loading ? (
 							<div>loading data...</div>
 						) : (
-							slicedNews.map((i) => {
+							slicedNews.map((i, index) => {
 								return (
 									<>
-										<img src={i.urlToImage} className="py-0" alt="web3-img" />
+										<img src={i.urlToImage}
+											key={index} className="py-0" alt="web3-img" />
 
-										<div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
+										<div
+											key={index}
+											className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
 											<h2 className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]">
 												{i.title}
 											</h2>
