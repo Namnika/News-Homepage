@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useFetch } from "../hooks/useFetch";
+import { Skeleton, Space, ConfigProvider } from "antd";
 import "../styles/index.css";
 
 export default function TrendingNews() {
@@ -29,7 +30,7 @@ export default function TrendingNews() {
 	);
 
 	const trendingNews = news.slice(0, 3);
-	console.log(trendingNews)
+	console.log(trendingNews);
 
 	return (
 		<div className="px-4 relative antialiased text-start flex flex-col">
@@ -40,24 +41,28 @@ export default function TrendingNews() {
 			</div>
 
 			<div className="leading-8 pt-5 divide-y divide-[color:hsl(236,13%,42%)]">
-				{loading ? (
-					<div>loading data...</div>
-				) : (
-					trendingNews.map((i, index) => {
-						return (
-							<>
-								<div key={index} className="py-5 space-y-2">
-									<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
-										{i.title}
-									</h4>
-									<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
-										{`${i.description.slice(0, 170)}...`}
-									</p>
-								</div>
-							</>
-						);
-					})
-				)}
+				{trendingNews.map((i, index) => {
+					return (
+						<>
+							<div key={index} className="py-5 space-y-2">
+								{loading ? (
+									<>
+										<Skeleton active />
+									</>
+								) : (
+									<>
+										<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
+											{i.title}
+										</h4>
+										<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
+											{`${i.description.slice(0, 170)}...`}
+										</p>
+									</>
+								)}
+							</div>
+						</>
+					);
+				})}
 			</div>
 		</div>
 	);

@@ -1,12 +1,13 @@
 // set env variable for apikey using vite
-// initialize data using skeleton hook
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Button from "../components/Button";
 import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
-import Button from "../components/Button";
 import { useRef } from "react";
 import { useFetch } from "../hooks/useFetch";
-import Footer from "../components/Footer";
+import { Skeleton, Space } from "antd";
+import { DotChartOutlined } from "@ant-design/icons";
 import "../styles/index.css";
 
 export default function Main() {
@@ -45,42 +46,85 @@ export default function Main() {
 				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
 					{/* Main news */}
 					<div className=" col-span-2">
-						{loading ? (
-							<div>loading data...</div>
-						) : (
-							slicedNews.map((i, index) => {
-								return (
-									<>
+						{slicedNews.map((i, index) => {
+							return (
+								<>
+									{loading ? (
+										<Skeleton.Node
+											active
+											style={{
+												width: "20rem",
+												height: "15rem"
+											}}
+										>
+											<DotChartOutlined
+												style={{
+													fontSize: 0
+												}}
+											/>
+										</Skeleton.Node>
+									) : (
 										<img
 											src={i.urlToImage}
 											key={index}
 											className="py-0"
 											alt="web3-img"
 										/>
+									)}
 
-										<div
-
-											className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
+									<div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
+										{loading ? (
+											<>
+												<Skeleton
+													active
+													title={{
+														width: "15rem"
+													}}
+													paragraph={false}
+												/>
+											</>
+										) : (
 											<h2
 												key={index}
 												className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]"
 											>
 												{i.title}
 											</h2>
-											<div className="lg:px-5 leading-8 font-['Inter-Regular']">
-												<p
-													key={index}
-													className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]"
-												>
-													{i.description}
-												</p>
-												<Button>Read More</Button>
-											</div>
+										)}
+										<div className="lg:px-5 leading-8 font-['Inter-Regular']">
+											{loading ? (
+												<>
+													<Skeleton
+														paragraph={{
+															rows: 3,
+															width: [250, 250, 160]
+														}}
+														title={false}
+														active
+													/>
+													<Skeleton.Button
+														active={true}
+														style={{ width: "8rem", height: "3rem" }}
+														shape="default"
+														block={false}
+													/>
+												</>
+											) : (
+												<>
+													<p
+														key={index}
+														className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]"
+													>
+														{i.description}
+													</p>
+													<Button>Read More</Button>
+												</>
+											)}
 										</div>
-									</>
-								);
-							})
-						)}
+									</div>
+								</>
+							);
+						})}
 					</div>
 
 					{/* Trending News*/}
