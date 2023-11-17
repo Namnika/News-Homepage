@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useFetch } from "../hooks/useFetch";
-import { Skeleton, Space, ConfigProvider } from "antd";
+import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
 
 export default function TrendingNews() {
@@ -47,7 +47,18 @@ export default function TrendingNews() {
 							<div key={index} className="py-5 space-y-2">
 								{loading ? (
 									<>
-										<Skeleton active />
+										<ConfigProvider
+											theme={{
+												components: {
+													Skeleton: {
+														color: "rgba(255, 255, 255, 0.1)",
+														algorithm: true,
+													},
+												},
+											}}
+										>
+											<Skeleton active />
+										</ConfigProvider>
 									</>
 								) : (
 									<>
@@ -63,7 +74,7 @@ export default function TrendingNews() {
 						</>
 					);
 				})}
-			</div>
+			</div >
 		</div>
 	);
 }
