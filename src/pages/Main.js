@@ -53,8 +53,8 @@ export default function Main() {
 										<Skeleton.Node
 											active
 											style={{
-												width: "20rem",
-												height: "15rem"
+												width: "45rem",
+												height: "30rem"
 											}}
 										>
 											<DotChartOutlined
@@ -77,6 +77,7 @@ export default function Main() {
 											<>
 												<Skeleton
 													active
+													className="ml-2"
 													title={{
 														width: "15rem"
 													}}
@@ -93,7 +94,8 @@ export default function Main() {
 										)}
 										<div className="lg:px-5 leading-8 font-['Inter-Regular']">
 											{loading ? (
-												<>
+												<Space size={20} className="mt-5" wrap>
+
 													<Skeleton
 														paragraph={{
 															rows: 3,
@@ -108,7 +110,7 @@ export default function Main() {
 														shape="default"
 														block={false}
 													/>
-												</>
+												</Space>
 											) : (
 												<>
 													<p
