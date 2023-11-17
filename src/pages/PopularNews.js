@@ -70,8 +70,8 @@ export default function PopularNews() {
 										<img
 											key={index}
 											className=" lg:h-[170px] h-[170px]"
-											src={i.urlToImage != null && i.urlToImage}
-											width={250}
+											src={i.urlToImage}
+											width={270}
 											height={300}
 											alt="img"
 										/>
@@ -81,8 +81,13 @@ export default function PopularNews() {
 									{loading ? (
 										<>
 											<Skeleton
+												className="mt-3 ml-3"
+												title={{
+													width: "70%"
+												}}
 												paragraph={{
-													rows: 3
+													rows: 3,
+													width: [200, 200, 150]
 												}}
 											/>
 										</>
