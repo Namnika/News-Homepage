@@ -28,7 +28,7 @@ export default function Footer() {
 							{" "}
 							Namnika Janbandhu
 						</a>
-						, All Rights Reserved.
+						. All Rights Reserved.
 					</div>
 				</div>
 			</footer>
