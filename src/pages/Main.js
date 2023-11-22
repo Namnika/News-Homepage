@@ -6,7 +6,7 @@ import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
 import { useRef } from "react";
 import { useFetch } from "../hooks/useFetch";
-import { Skeleton, Space } from "antd";
+import { Skeleton } from "antd";
 import { DotChartOutlined } from "@ant-design/icons";
 import "../styles/index.css";
 
@@ -73,55 +73,21 @@ export default function Main() {
 									)}
 
 									<div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">
-										{loading ? (
-											<>
-												<Skeleton
-													active
-													className="ml-2"
-													title={{
-														width: "15rem"
-													}}
-													paragraph={false}
-												/>
-											</>
-										) : (
-											<h2
-												key={index}
-												className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]"
-											>
-												{i.title}
-											</h2>
-										)}
-										<div className="lg:px-5 leading-8 font-['Inter-Regular']">
-											{loading ? (
-												<Space size={20} className="mt-5" wrap>
+										<h2
+											key={index}
+											className="text-[color:hsl(240,100%,5%)] font-['Inter-ExtraBold'] leading-[1.1em] text-5xl lg:text-[3.3rem]"
+										>
+											{i.title}
+										</h2>
 
-													<Skeleton
-														paragraph={{
-															rows: 3,
-															width: [250, 250, 160]
-														}}
-														title={false}
-														active
-													/>
-													<Skeleton.Button
-														active={true}
-														style={{ width: "8rem", height: "3rem" }}
-														shape="default"
-														block={false}
-													/>
-												</Space>
-											) : (
-												<>
-													<p
-														key={index}
-														className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]"
-													>
-														{i.description}
-													</p>
-													<Button>Read More</Button>
-												</>
-											)}
+										<div className="lg:px-5 leading-8 font-['Inter-Regular']">
+											<p
+												key={index}
+												className="text-[15px]  line-clamp-4 mt-4 text-[color:hsl(236,13%,42%)]"
+											>
+												{i.description}
+											</p>
+											<Button>Read More</Button>
 										</div>
 									</div>
 								</>
