@@ -12,7 +12,7 @@ import "../styles/index.css";
 
 export default function Main() {
 	const isComponentMounted = useRef(true);
-	const apiKey = "3d993edcc0e34e28b84450d9f7c95e36";
+	const apiKey = import.meta.env.VITE_API_KEY;
 
 	const topics = [
 		"bitcoin",
