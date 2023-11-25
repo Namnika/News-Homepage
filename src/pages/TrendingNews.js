@@ -30,7 +30,7 @@ export default function TrendingNews() {
 	);
 
 	const trendingNews = news.slice(0, 3);
-	console.log(trendingNews);
+	// console.log(trendingNews);
 
 	return (
 		<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2">
@@ -52,7 +52,7 @@ export default function TrendingNews() {
 												theme={{
 													components: {
 														Skeleton: {
-															color: "rgba(255, 255, 255, 0.1)",
+															gradientFromColor: "rgba(255, 255, 255, 0.1)",
 															algorithm: true
 														}
 													}
