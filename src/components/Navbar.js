@@ -6,12 +6,21 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-MobileMenu.propTypes = {
-	navOpen: PropTypes.bool,
-	setNavOpen: PropTypes.func
+Navbar.propTypes = {
+	setNews: PropTypes.func,
+	setPopularNews: PropTypes.func,
+	setTrendingNews: PropTypes.func
 };
 
-export default function Navbar() {
+MobileMenu.propTypes = {
+	navOpen: PropTypes.bool,
+	setNavOpen: PropTypes.func,
+	setNews: PropTypes.func,
+	setPopularNews: PropTypes.func,
+	setTrendingNews: PropTypes.func
+};
+
+export default function Navbar({ setNews, setPopularNews, setTrendingNews }) {
 	const [navToggled, setNavToggled] = useState(false);
 
 	return (
@@ -26,19 +35,40 @@ export default function Navbar() {
 
 					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to={"/"}>Home</Link>
+							<Link to="/">Home</Link>
 						</li>
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to={"#news"}>News</Link>
+							<Link
+								to="#news"
+								onClick={() => {
+									setNews((news) => [...news, news]);
+								}}
+							>
+								News
+							</Link>
 						</li>
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to={"#popular"}>Popular</Link>
+							<Link
+								to="#popular"
+								onClick={() => {
+									setPopularNews((popular) => [...popular, popular]);
+								}}
+							>
+								Popular
+							</Link>
 						</li>
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to={"#trending"}>Trending</Link>
+							<Link
+								to="#trending"
+								onClick={() => {
+									setTrendingNews((trending) => [...trending, trending]);
+								}}
+							>
+								Trending
+							</Link>
 						</li>
 						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to={"#categories"}>Categories</Link>
+							<Link to="#categories">Categories</Link>
 						</li>
 					</ul>
 					{/* Mobile Navigation */}
@@ -56,13 +86,22 @@ export default function Navbar() {
 				<MobileMenu
 					navOpen={navToggled}
 					setNavOpen={setNavToggled}
+					setNews={setNews}
+					setPopularNews={setPopularNews}
+					setTrendingNews={setTrendingNews}
 				/>
 			)}
 		</>
 	);
 }
 
-export function MobileMenu({ navOpen, setNavOpen }) {
+export function MobileMenu({
+	navOpen,
+	setNavOpen,
+	setNews,
+	setPopularNews,
+	setTrendingNews
+}) {
 	return (
 		<>
 			<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
@@ -80,19 +119,40 @@ export function MobileMenu({ navOpen, setNavOpen }) {
 				</a>
 				<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to={"/"}>Home</Link>
+						<Link to="/">Home</Link>
 					</li>
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to={"#news"}>News</Link>
+						<Link
+							to="#news"
+							onClick={() => {
+								setNews((news) => [...news, news]);
+							}}
+						>
+							News
+						</Link>
 					</li>
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to={"#popular"}>Popular</Link>
+						<Link
+							to="#popular"
+							onClick={() => {
+								setPopularNews((popular) => [...popular, popular]);
+							}}
+						>
+							Popular
+						</Link>
 					</li>
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to={"#trending"}>Trending</Link>
+						<Link
+							to="#trending"
+							onClick={() => {
+								setTrendingNews((trending) => [...trending, trending]);
+							}}
+						>
+							Trending
+						</Link>
 					</li>
 					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to={"#categories"}>Categories</Link>
+						<Link to="#categories">Categories</Link>
 					</li>
 				</ul>
 			</div>

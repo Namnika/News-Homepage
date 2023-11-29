@@ -1,35 +1,14 @@
-import { useRef } from "react";
-import { useFetch } from "../hooks/useFetch";
 import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
+import PropTypes from "prop-types";
 
-export default function TrendingNews() {
-	const isComponentMounted = useRef(true);
-	const apiKey = import.meta.env.VITE_API_KEY;
+TrendingNews.propTypes = {
+	news: PropTypes.arrayOf(PropTypes.object),
+	loading: PropTypes.bool
+};
 
-	const sources = [
-		"bbc-news",
-		"abc-news",
-		"forbes",
-		"business-insider",
-		"washington-post",
-		"the-daily-times",
-		"cnn",
-		"billboard"
-	];
-
-	const source = Math.floor(
-		Math.random(sources.map((s) => s)) * sources.length
-	);
-	const so = sources[source];
-
-	const { news, loading } = useFetch(
-		`https://newsapi.org/v2/top-headlines?sources=${so}&apiKey=${apiKey}`,
-		isComponentMounted,
-		[]
-	);
-
-	const trendingNews = news.slice(0, 3);
+export default function TrendingNews({ news, loading }) {
+	const trendingNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
 	// console.log(trendingNews);
 
 	return (

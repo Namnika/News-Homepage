@@ -1,46 +1,16 @@
-import { useRef } from "react";
-import { useFetch } from "../hooks/useFetch";
 import { Skeleton } from "antd";
 import { DotChartOutlined } from "@ant-design/icons";
+import PropTypes from "prop-types";
 import "../styles/index.css";
 
-export default function PopularNews() {
-	const isComponentMounted = useRef(true);
-	const apiKey = import.meta.env.VITE_API_KEY;
+PopularNews.propTypes = {
+	news: PropTypes.arrayOf(PropTypes.object),
+	loading: PropTypes.bool
+};
 
-	const countries = [
-		"ar",
-		"it",
-		"jp",
-		"kr",
-		"ch",
-		"au",
-		"de",
-		"ca",
-		"eg",
-		"fr",
-		"gb",
-		"ua",
-		"us",
-		"za",
-		"mx",
-		"my",
-		"ng"
-	];
-
-	const country = Math.floor(
-		Math.random(countries.map((q) => q)) * countries.length
-	);
-	const ct = countries[country];
-
-	const { news, loading } = useFetch(
-		`https://newsapi.org/v2/top-headlines?country=${ct}&apiKey=${apiKey}`,
-		isComponentMounted,
-		[]
-	);
-
-	const popularNews = news.slice(0, 3);
-	console.log(popularNews);
+export default function PopularNews({ news, loading }) {
+	const popularNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
+	// console.log(popularNews);
 
 	return (
 		<>
@@ -48,7 +18,7 @@ export default function PopularNews() {
 				{popularNews.map((i, index) => {
 					return (
 						<>
-							<div className="flex">
+							<div key={index} className="flex">
 								{loading ? (
 									<>
 										<Skeleton.Node
@@ -67,7 +37,6 @@ export default function PopularNews() {
 									</>
 								) : (
 									<img
-										key={index}
 										className=" lg:h-[170px] h-[170px]"
 										src={i.urlToImage}
 										width={270}
@@ -81,17 +50,11 @@ export default function PopularNews() {
 										0{index + 1}
 									</h3>
 
-									<h4
-										key={index}
-										className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] cursor-pointer hover:text-[color:hsl(5,85%,63%)]"
-									>
+									<h4 className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] cursor-pointer hover:text-[color:hsl(5,85%,63%)]">
 										{`${i.title.slice(0, 30)}...`}
 									</h4>
 
-									<p
-										key={index}
-										className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2"
-									>
+									<p className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2">
 										{i.description}
 									</p>
 								</div>
