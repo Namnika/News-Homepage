@@ -1,16 +1,39 @@
+import { useRef } from "react";
 import { Skeleton } from "antd";
 import { DotChartOutlined } from "@ant-design/icons";
-import PropTypes from "prop-types";
 import "../styles/index.css";
+import { useFetch } from "../hooks/useFetch";
+import { countries } from "../utils/NewsTopics";
 
-PopularNews.propTypes = {
-	news: PropTypes.arrayOf(PropTypes.object),
-	loading: PropTypes.bool
-};
+// fetching top-headlines sort with countries
+export default function PopularNews() {
+	const isComponentMounted = useRef(true);
+	const apiKey = import.meta.env.VITE_API_KEY;
+	const url = "https://newsapi.org/v2/top-headlines";
 
-export default function PopularNews({ news, loading }) {
+	// for query (q) parameter
+	// const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
+	// const to = topics[topic];
+
+	const country = Math.floor(
+		Math.random(countries.map((i) => i)) * countries.length
+	);
+	const co = countries[country];
+
+	const options = {
+		params: { country: co },
+		headers: {
+			"x-api-key": apiKey
+		}
+	};
+
+	const { news, loading } = useFetch(
+		{ url: url, options: options },
+		isComponentMounted,
+		[]
+	);
+
 	const popularNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
-	// console.log(popularNews);
 
 	return (
 		<>

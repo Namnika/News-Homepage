@@ -4,7 +4,7 @@ import { DotChartOutlined } from "@ant-design/icons";
 import PropTypes from "prop-types";
 
 News.propTypes = {
-    news: PropTypes.arrayOf(PropTypes.object),
+    news: PropTypes.array,
     loading: PropTypes.bool
 };
 
@@ -14,10 +14,10 @@ export default function News({ news, loading }) {
     return (
         <>
             <div className="col-span-2">
-                {slicedNews.map((i) => {
+                {slicedNews.map((i, index) => {
                     return (
                         <>
-                            <div key={i.title}>
+                            <div key={index}>
                                 {loading ? (
                                     <Skeleton.Node
                                         active

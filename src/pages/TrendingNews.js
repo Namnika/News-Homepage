@@ -1,15 +1,44 @@
+import { useRef } from "react";
 import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
-import PropTypes from "prop-types";
+import { useFetch } from "../hooks/useFetch";
+import { countries } from "../utils/NewsTopics";
 
-TrendingNews.propTypes = {
-	news: PropTypes.arrayOf(PropTypes.object),
-	loading: PropTypes.bool
-};
+// fetching articles through sources
+export default function TrendingNews() {
+	const isComponentMounted = useRef(true);
+	const apiKey = import.meta.env.VITE_API_KEY;
+	const url = "https://newsapi.org/v2/top-headlines";
 
-export default function TrendingNews({ news, loading }) {
+	// for query (q) param
+	// const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
+	// const to = topics[topic];
+
+	// const source = Math.floor(
+	// 	Math.random(sources.map((i) => i)) * sources.length
+	// );
+	// const so = sources[source];
+
+	const country = Math.floor(
+		Math.random(countries.map((i) => i)) * countries.length
+	);
+	const co = countries[country];
+
+	const options = {
+		params: { country: co },
+		headers: {
+			"x-api-key": apiKey
+		}
+	};
+
+	const { news, loading } = useFetch(
+		{ url: url, options: options },
+		isComponentMounted,
+		[]
+	);
+
 	const trendingNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
-	// console.log(trendingNews);
+	console.log(trendingNews)
 
 	return (
 		<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2">
