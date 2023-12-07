@@ -27,3 +27,9 @@
 	margin: 0;
 	padding: 0;
 }
+
+@layer components {
+	.audio-btn {
+		@apply cursor-pointer w-[26px] flex bg-[color:hsl(240,_100%,_5%)] justify-center border-2 border-[color:hsl(240,_100%,_5%)] rounded-[9999px] p-[5px]
+	}
+}
