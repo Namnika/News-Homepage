@@ -2,30 +2,37 @@ import { useRef } from "react";
 import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
-import { countries } from "../utils/NewsTopics";
+import { sources } from "../utils/NewsTopics";
+import AudioComponent from "../components/AudioComponent";
 
 // fetching articles through sources
 export default function TrendingNews() {
 	const isComponentMounted = useRef(true);
 	const apiKey = import.meta.env.VITE_API_KEY;
+	const voiceId = import.meta.env.VITE_VOICE_ID;
+	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
+	const audioQualitySettings = {
+		stablitity: 0,
+		similarity_boost: 0
+	};
 	const url = "https://newsapi.org/v2/top-headlines";
 
 	// for query (q) param
 	// const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
 	// const to = topics[topic];
 
-	// const source = Math.floor(
-	// 	Math.random(sources.map((i) => i)) * sources.length
-	// );
-	// const so = sources[source];
-
-	const country = Math.floor(
-		Math.random(countries.map((i) => i)) * countries.length
+	const source = Math.floor(
+		Math.random(sources.map((i) => i)) * sources.length
 	);
-	const co = countries[country];
+	const so = sources[source];
+
+	// const country = Math.floor(
+	// 	Math.random(countries.map((i) => i)) * countries.length
+	// );
+	// const co = countries[country];
 
 	const options = {
-		params: { country: co },
+		params: { sources: so },
 		headers: {
 			"x-api-key": apiKey
 		}
@@ -38,7 +45,6 @@ export default function TrendingNews() {
 	);
 
 	const trendingNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
-	console.log(trendingNews)
 
 	return (
 		<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2">
@@ -71,11 +77,18 @@ export default function TrendingNews() {
 										</>
 									) : (
 										<>
+											<AudioComponent
+												voiceId={voiceId}
+												apiKey={voiceApiKey}
+												text={`${i.title}${i.description.slice(0, 170)}`}
+												voiceSettings={audioQualitySettings}
+											/>
+
 											<h4 className="text-[color:hsl(36,100%,99%)] text-lg font-['Inter-Bold'] cursor-pointer hover:text-[color:hsl(35,77%,62%)]">
 												{i.title}
 											</h4>
 											<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
-												{`${i.description.slice(0, 170)}...`}
+												{`${i.description}`}
 											</p>
 										</>
 									)}
