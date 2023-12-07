@@ -11,16 +11,16 @@ import "../styles/index.css";
 // feching new articles
 export default function Main() {
 	const isComponentMounted = useRef(true);
-	const apiKey = import.meta.env.VITE_API_KEY;
-	const url = "https://newsapi.org/v2/everything";
+	const newsApiKey = import.meta.env.VITE_API_KEY2;
+	const url = "https://api.newscatcherapi.com/v2/search";
 
 	const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
 	const to = topics[topic];
 
 	const options = {
-		params: { q: to, sortBy: "popularity" },
+		params: { q: to, sort_by: "rank" },
 		headers: {
-			"x-api-key": apiKey
+			"x-api-key": newsApiKey
 		}
 	};
 
@@ -31,7 +31,7 @@ export default function Main() {
 	);
 
 	return (
-		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-24 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
+		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-[2.5rem] pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
 			<Navbar setNews={setNews} />
 			<div className="mx-auto lg:mt-4 lg:mb-16 my-4">
 				<div className="grid grid-flow-row-dense grid-cols-1 lg:gap-5 gap-y-16 lg:grid-cols-3">
