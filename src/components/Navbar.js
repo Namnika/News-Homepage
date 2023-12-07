@@ -5,7 +5,6 @@ import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Menu, ConfigProvider } from "antd";
 
 Navbar.propTypes = {
 	setNews: PropTypes.func
@@ -19,75 +18,6 @@ MobileMenu.propTypes = {
 
 export default function Navbar({ setNews }) {
 	const [navToggled, setNavToggled] = useState(false);
-	const [current, setCurrent] = useState();
-
-	const onClick = (e) => {
-		console.log("click ", e);
-		setCurrent(e.key);
-	};
-
-	const items = [
-		{
-			label: "Categories",
-			children: [
-				{
-					label: (
-						<Link
-							to="#sport"
-						>
-							Sport
-						</Link>
-					),
-					key: "setting:1"
-				},
-				{
-					label: (
-						<Link
-							to="#business"
-						>
-							Business
-						</Link>
-					),
-					key: "setting:2"
-				},
-				{
-					label: (
-						<Link
-							to="#energy"
-						>
-							Energy
-						</Link>
-					),
-					key: "setting:3"
-				},
-				{
-					label: (
-						<Link
-							to="#gaming"
-						>
-							Gaming
-						</Link>
-					),
-					key: "setting:4"
-				},
-				{
-					label: (
-						<Link
-							to="#travel"
-						>
-							Travel
-						</Link>
-					),
-					key: "setting:5"
-				}
-			]
-		}, {
-			label: "EN",
-			children: [
-
-			]
-		}
-	];
 
 	return (
 		<>
@@ -127,46 +57,11 @@ export default function Navbar({ setNews }) {
 							<Link
 								to="#trending"
 								onClick={() => {
-									setNews((news) => [...news, news]);
+									setNews((trendingNews) => [...trendingNews, trendingNews]);
 								}}
 							>
 								Trending
 							</Link>
-						</li>
-						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<ConfigProvider
-								theme={{
-									token: {
-										colorBgTextHover: "hsl(5,85%,63%)",
-										borderRadius: 0,
-										fontFamily: "Inter-Regular",
-										fontSize: 15,
-										colorText: "hsl(236,13%,42%)",
-									},
-									components: {
-										Menu: {
-											activeBarBorderWidth: 0,
-											activeBarHeight: 0,
-											itemHoverBg: "transparent",
-											itemHoverColor: "hsl(5,85%,63%)",
-											itemSelectedColor: "hsl(5,85%,63%)",
-											itemSelectedBg: "transparent",
-											subMenuItemBorderRadius: 0,
-											iconSize: 18
-										}
-									}
-								}}
-							>
-								<Menu
-									onClick={onClick}
-									selectedKeys={[current]}
-									mode="horizontal"
-									items={items}
-									style={{
-										borderBottom: 0
-									}}
-								/>
-							</ConfigProvider>
 						</li>
 					</ul>
 					{/* Mobile Navigation */}
@@ -191,11 +86,7 @@ export default function Navbar({ setNews }) {
 	);
 }
 
-export function MobileMenu({
-	navOpen,
-	setNavOpen,
-	setNews
-}) {
+export function MobileMenu({ navOpen, setNavOpen, setNews }) {
 	return (
 		<>
 			<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
@@ -229,7 +120,7 @@ export function MobileMenu({
 						<Link
 							to="#popular"
 							onClick={() => {
-								setNews((news) => [...news, news]);
+								setNews((popularNews) => [...popularNews, popularNews]);
 							}}
 						>
 							Popular
@@ -239,14 +130,11 @@ export function MobileMenu({
 						<Link
 							to="#trending"
 							onClick={() => {
-								setNews((news) => [...news, news]);
+								setNews((trendingNews) => [...trendingNews, trendingNews]);
 							}}
 						>
 							Trending
 						</Link>
-					</li>
-					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to="#categories">Categories</Link>
 					</li>
 				</ul>
 			</div>
