@@ -19,7 +19,7 @@ export default function AudioComponent({
     const [loading, setLoading] = useState(false);
     const [play, setPlay] = useState(false);
     const audio = useRef(true);
-    const [sourceUrl, setSourceUrl] = useState("");
+    const [sourceUrl, setSourceUrl] = useState(null);
     const [error, setError] = useState("");
 
     const convertAndStream = async () => {
