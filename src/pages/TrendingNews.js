@@ -2,44 +2,39 @@ import { useRef } from "react";
 import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
-import { sources } from "../utils/NewsTopics";
+import { sources, countries } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";
+import PropTypes from "prop-types";
 
-// fetching articles through sources
-export default function TrendingNews() {
+// fetching latest_headlines sort with countries
+TrendingNews.propTypes = {
+	baseUrl: PropTypes.string
+};
+
+export default function TrendingNews({ baseUrl }) {
 	const isComponentMounted = useRef(true);
-	const apiKey = import.meta.env.VITE_API_KEY;
+	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
 	const audioQualitySettings = {
 		stablitity: 0,
 		similarity_boost: 0
 	};
-	const url = "https://newsapi.org/v2/top-headlines";
-
-	// for query (q) param
-	// const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
-	// const to = topics[topic];
 
 	const source = Math.floor(
 		Math.random(sources.map((i) => i)) * sources.length
 	);
 	const so = sources[source];
 
-	// const country = Math.floor(
-	// 	Math.random(countries.map((i) => i)) * countries.length
-	// );
-	// const co = countries[country];
-
 	const options = {
 		params: { sources: so },
 		headers: {
-			"x-api-key": apiKey
+			"x-api-key": newsApiKey
 		}
 	};
 
 	const { news, loading } = useFetch(
-		{ url: url, options: options },
+		{ url: `${baseUrl}/latest_headlines`, options: options },
 		isComponentMounted,
 		[]
 	);
@@ -56,10 +51,10 @@ export default function TrendingNews() {
 				</div>
 
 				<div className="leading-8 pt-5 divide-y divide-[color:hsl(236,13%,42%)]">
-					{trendingNews.map((i, index) => {
+					{trendingNews.map((i) => {
 						return (
 							<>
-								<div key={index} className="py-5 space-y-2">
+								<div key={i._id} className="py-5 space-y-2">
 									{loading ? (
 										<>
 											<ConfigProvider
@@ -80,7 +75,7 @@ export default function TrendingNews() {
 											<AudioComponent
 												voiceId={voiceId}
 												apiKey={voiceApiKey}
-												text={`${i.title}${i.description.slice(0, 170)}`}
+												text={`${i.title}${i.excerpt}`}
 												voiceSettings={audioQualitySettings}
 											/>
 
@@ -88,7 +83,7 @@ export default function TrendingNews() {
 												{i.title}
 											</h4>
 											<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
-												{`${i.description}`}
+												{`${i.excerpt}`}
 											</p>
 										</>
 									)}

@@ -1,23 +1,43 @@
 // all news varieties
-
-export const countries = [
+export const languages = [
     "ar",
     "it",
-    "jp",
-    "kr",
-    "ch",
-    "au",
+    "ja",
+    "ko",
+    "cn",
+    "tw",
     "de",
     "ca",
-    "eg",
+    "uk",
     "fr",
-    "gb",
-    "ua",
-    "us",
-    "za",
-    "mx",
-    "my",
-    "ng"
+    "es",
+    "ur",
+    "ru",
+    "af",
+    "en",
+    "pt",
+    "sl"
+];
+
+export const countries = [
+    "AF",
+    "US",
+    "FR",
+    "KR",
+    "CN",
+    "TW",
+    "JP",
+    "ES",
+    "DE",
+    "MX",
+    "IT",
+    "LV",
+    "LA",
+    "RU",
+    "SL",
+    "PT",
+    "CA",
+    "GB"
 ];
 
 export const topics = [
@@ -34,12 +54,14 @@ export const topics = [
 ];
 
 export const sources = [
-    "bbc-news",
-    "abc-news",
-    "forbes",
-    "business-insider",
-    "washington-post",
-    "the-daily-times",
-    "cnn",
-    "billboard"
+    "bbc.com",
+    "abc.com",
+    "cnbc.com",
+    "nytimes.com",
+    "forbes.com",
+    "businessinsider.com",
+    "washingtonpost.com",
+    "thedailytimes.com",
+    "cnn.com",
+    "billboard.com"
 ];

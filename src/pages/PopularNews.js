@@ -3,39 +3,39 @@ import { Skeleton } from "antd";
 import { DotChartOutlined } from "@ant-design/icons";
 import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
-import { countries } from "../utils/NewsTopics";
+import { languages } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";
+import PropTypes from "prop-types";
 
-// fetching top-headlines sort with countries
-export default function PopularNews() {
+// fetching top-headlines sort with languages
+PopularNews.propTypes = {
+	baseUrl: PropTypes.string
+};
+
+export default function PopularNews({ baseUrl }) {
 	const isComponentMounted = useRef(true);
-	const apiKey = import.meta.env.VITE_API_KEY;
+	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
 	const audioQualitySettings = {
 		stablitity: 0,
 		similarity_boost: 0
 	};
-	const url = "https://newsapi.org/v2/top-headlines";
 
-	// for query (q) parameter
-	// const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
-	// const to = topics[topic];
-
-	const country = Math.floor(
-		Math.random(countries.map((i) => i)) * countries.length
+	const language = Math.floor(
+		Math.random(languages.map((i) => i)) * languages.length
 	);
-	const co = countries[country];
+	const lng = languages[language];
 
 	const options = {
-		params: { country: co },
+		params: { lang: lng },
 		headers: {
-			"x-api-key": apiKey
+			"x-api-key": newsApiKey
 		}
 	};
 
 	const { news, loading } = useFetch(
-		{ url: url, options: options },
+		{ url: `${baseUrl}/latest_headlines`, options: options },
 		isComponentMounted,
 		[]
 	);
@@ -48,7 +48,7 @@ export default function PopularNews() {
 				{popularNews.map((i, index) => {
 					return (
 						<>
-							<div key={index} className="block">
+							<div key={i._id} className="block">
 								{loading ? (
 									<>
 										<Skeleton.Node
@@ -69,7 +69,7 @@ export default function PopularNews() {
 									<>
 										<img
 											className="object-scale-down lg:h-[170px] h-[170px]"
-											src={i.urlToImage}
+											src={i.urlToImage === null && <Skeleton.Image />}
 											width={270}
 											height={300}
 											alt="img"
@@ -84,7 +84,7 @@ export default function PopularNews() {
 									<AudioComponent
 										voiceId={voiceId}
 										apiKey={voiceApiKey}
-										text={`${i.title}${i.description}`}
+										text={`${i.title}${i.excerpt}`}
 										voiceSettings={audioQualitySettings}
 									/>
 
@@ -92,7 +92,7 @@ export default function PopularNews() {
 										{`${i.title}`}
 									</h4>
 									<p className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-2 md:line-clamp-2">
-										{i.description}
+										{i.excerpt}
 									</p>
 								</div>
 							</div>
