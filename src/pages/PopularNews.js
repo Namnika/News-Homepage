@@ -18,7 +18,7 @@ export default function PopularNews({ baseUrl }) {
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
 	const audioQualitySettings = {
-		stablitity: 0,
+		stability: 0,
 		similarity_boost: 0
 	};
 
@@ -28,6 +28,7 @@ export default function PopularNews({ baseUrl }) {
 	const lng = languages[language];
 
 	const options = {
+		method: "GET",
 		params: { lang: lng },
 		headers: {
 			"x-api-key": newsApiKey
@@ -69,7 +70,7 @@ export default function PopularNews({ baseUrl }) {
 									<>
 										<img
 											className="object-scale-down lg:h-[170px] h-[170px]"
-											src={i.urlToImage === null && <Skeleton.Image />}
+											src={i.urlToImage !== null && <Skeleton.Image />}
 											width={270}
 											height={300}
 											alt="img"

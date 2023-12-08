@@ -18,6 +18,7 @@ export default function Main() {
 	const to = topics[topic];
 
 	const options = {
+		method: "GET",
 		params: { q: to, sort_by: "rank" },
 		headers: {
 			"x-api-key": newsApiKey

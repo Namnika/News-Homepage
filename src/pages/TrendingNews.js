@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
-import { sources, countries } from "../utils/NewsTopics";
+import { sources } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";
 import PropTypes from "prop-types";
 
@@ -17,7 +17,7 @@ export default function TrendingNews({ baseUrl }) {
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
 	const audioQualitySettings = {
-		stablitity: 0,
+		stability: 0,
 		similarity_boost: 0
 	};
 
@@ -27,6 +27,7 @@ export default function TrendingNews({ baseUrl }) {
 	const so = sources[source];
 
 	const options = {
+		method: "GET",
 		params: { sources: so },
 		headers: {
 			"x-api-key": newsApiKey
