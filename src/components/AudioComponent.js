@@ -82,7 +82,7 @@ export default function AudioComponent({
             </audio>
 
             <button
-                title="audio-btn"
+                title="play to listen news"
                 className="audio-btn"
                 onClick={convertAndStream}
                 disabled={loading}
