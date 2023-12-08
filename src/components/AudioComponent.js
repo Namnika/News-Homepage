@@ -18,7 +18,7 @@ export default function AudioComponent({
 }) {
     const [loading, setLoading] = useState(false);
     const [play, setPlay] = useState(false);
-    const audio = useRef(true);
+    const audio = useRef(null);
     const [sourceUrl, setSourceUrl] = useState(null);
     const [error, setError] = useState("");
 
@@ -82,7 +82,7 @@ export default function AudioComponent({
             </audio>
 
             <button
-                type="button"
+                title="audio-btn"
                 className="audio-btn"
                 onClick={convertAndStream}
                 disabled={loading}
