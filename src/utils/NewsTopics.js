@@ -1,43 +1,21 @@
 // all news varieties
 export const languages = [
-    "ar",
-    "it",
-    "ja",
-    "ko",
-    "cn",
-    "tw",
-    "de",
-    "ca",
-    "uk",
-    "fr",
-    "es",
-    "ur",
-    "ru",
-    "af",
     "en",
+    "cn",
+    "es",
     "pt",
+    "fr",
+    "de",
+    "ja",
+    "ar",
+    "ru",
+    "ko",
+    "id",
+    "it",
+    "nl",
+    "tr",
+    "uk",
     "sl"
-];
-
-export const countries = [
-    "AF",
-    "US",
-    "FR",
-    "KR",
-    "CN",
-    "TW",
-    "JP",
-    "ES",
-    "DE",
-    "MX",
-    "IT",
-    "LV",
-    "LA",
-    "RU",
-    "SL",
-    "PT",
-    "CA",
-    "GB"
 ];
 
 export const topics = [
