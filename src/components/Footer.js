@@ -6,13 +6,13 @@ export default function Footer() {
 			<footer className="py-12 lg:pt-16 lg:pb-20 border-t-[1px] border-slate-200">
 				<div className="flex flex-col lg:flex-row-reverse w-full  space-y-5 lg:space-y-0">
 					<div className="text-slate-400 text-center space-x-5 inline-flex lg:ml-auto lg:mr-0 lg:my-auto mx-auto">
-						<a href="#" className="hover:text-[color:hsl(236,13%,42%)]">
+						<a href="https://x.com/bt_13jjks?s=20" className="hover:text-[color:hsl(236,13%,42%)]">
 							<FaXTwitter />
 						</a>
-						<a href="#" className="hover:text-[color:hsl(236,13%,42%)]">
+						<a href="https://www.linkedin.com/in/namnika-janbandhu" className="hover:text-[color:hsl(236,13%,42%)]">
 							<FaLinkedin />
 						</a>
-						<a href="#" className="hover:text-[color:hsl(236,13%,42%)]">
+						<a href="https://github.com/Namnika/News-Homepage" className="hover:text-[color:hsl(236,13%,42%)]">
 							<FaGithub />
 						</a>
 					</div>
