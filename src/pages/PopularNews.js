@@ -70,7 +70,7 @@ export default function PopularNews({ baseUrl }) {
 									<>
 										<img
 											className="object-scale-down lg:h-[170px] h-[170px]"
-											src={i.urlToImage !== null && <Skeleton.Image />}
+											src={i.urlToImage}
 											width={270}
 											height={300}
 											alt="img"
