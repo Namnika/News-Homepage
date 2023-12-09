@@ -92,7 +92,7 @@ export default function PopularNews({ baseUrl }) {
 									<h4 className="text-lg font-['Inter-Bold'] text-[color:hsl(240,100%,5%)] cursor-pointer hover:text-[color:hsl(5,85%,63%)]">
 										{`${i.title}`}
 									</h4>
-									<p className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] line-clamp-3 md:line-clamp-3">
+									<p className="text-[15px] font-['Inter-Regular'] text-[color:hsl(236,13%,42%)]">
 										{i.excerpt}
 									</p>
 								</div>
