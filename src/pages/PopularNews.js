@@ -29,7 +29,7 @@ export default function PopularNews({ baseUrl }) {
 
 	const options = {
 		method: "GET",
-		params: { lang: lng },
+		params: { lang: lng, sort_by: "date" },
 		headers: {
 			"x-api-key": newsApiKey
 		}
@@ -70,7 +70,7 @@ export default function PopularNews({ baseUrl }) {
 									<>
 										<img
 											className="object-scale-down lg:h-[170px] h-[170px]"
-											src={i.urlToImage}
+											src={i.media}
 											width={270}
 											height={300}
 											alt="img"
