@@ -29,7 +29,7 @@ export default function PopularNews({ baseUrl }) {
 
 	const options = {
 		method: "GET",
-		params: { lang: lng, sort_by: "date" },
+		params: { lang: lng },
 		headers: {
 			"x-api-key": newsApiKey
 		}
