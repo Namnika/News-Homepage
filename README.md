@@ -4,24 +4,39 @@ Get all the latest and greatest topics, across multiple languages, all in one co
 
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
+- [🗞️ News homepage](#️-news-homepage)
+  - [Table of contents](#table-of-contents)
   - [Overview](#overview)
-    - [Goal](#goal)
-    - [Screenshot](#screenshot)
+    - [Introduction](#introduction)
+    - [Screenshots](#screenshots)
     - [Link](#link)
   - [Process](#process)
     - [Built with](#built-with)
     - [Useful resources](#useful-resources)
+    - [Testing](#testing)
 
 ## Overview
 
-### Goal
+### Introduction
 
-I want to make this responsive website more interactive by switching the nav links and getting access to various categories of trending news such as sports, lifestyle, and business, etc. using [News Catcher API](https://www.newscatcherapi.com/) on only one page.
+On this homepage, you can easily access the latest news and top headlines with just one click. You won't have to worry 😥 about navigating for categories or languages. All you need to do is just click on the navigation link.
+That's all!
 
-### Screenshot
+And you will get updated news in your preferred language.
+
+This platform allows you to listen (AI feature) to and read your favourite headlines without any hassle.
+
+So Listen Calmly!!
+
+### Screenshots
+
+- Desktop View
 
 ![Website Design](/public/screenshot.png)
+
+- Mobile View
+
+![Website Design](/public/mobile-screenshot.png)
 
 ### Link
 
@@ -35,11 +50,18 @@ I want to make this responsive website more interactive by switching the nav lin
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- AJAX
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - For performance
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [ESlint](https://eslint.org/) -For JSLint errors
+- [Prettier](https://prettier.io/) - For formatting
 
 ### Useful resources
 
-- [News Catcher API](https://www.newscatcherapi.com/) - This will be going to help me for getting various news topics along with categories.
-- [react-18next](https://react.i18next.com/) - This library will help to translate the whole website.
+- [News Catcher API](https://www.newscatcherapi.com/)
+- [Elevenlabs API (Text-To-Speech)](https://elevenlabs.io/)
+
+### Testing
+
+- Unit & Static Testing using JEST and RTL
