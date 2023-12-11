@@ -6,6 +6,9 @@ module.exports = {
 		es2021: true,
 		jest: true
 	},
+	globals: {
+		__dirname: true
+	},
 	extends: [
 		"eslint:recommended",
 		"plugin:react/recommended",
@@ -23,14 +26,13 @@ module.exports = {
 			}
 		}
 	],
-	parser: "babel-eslint",
+	// parser: "babel-eslint",
 	parserOptions: {
 		ecmaVersion: "latest",
 		sourceType: "module"
 	},
 	plugins: [],
 	rules: {
-		"react/react-in-jsx-scope": "off",
-		"no-unused-vars": "off"
-	}
+		"react/react-in-jsx-scope": "off"
+	},
 };
