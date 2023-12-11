@@ -1,8 +1,10 @@
 module.exports = {
 	root: true,
 	env: {
+		commonjs: true,
 		browser: true,
-		es2021: true
+		es2021: true,
+		jest: true
 	},
 	extends: [
 		"eslint:recommended",
@@ -21,12 +23,14 @@ module.exports = {
 			}
 		}
 	],
+	parser: "babel-eslint",
 	parserOptions: {
 		ecmaVersion: "latest",
 		sourceType: "module"
 	},
 	plugins: [],
 	rules: {
-		"react/react-in-jsx-scope": "off"
+		"react/react-in-jsx-scope": "off",
+		"no-unused-vars": "off"
 	}
 };
