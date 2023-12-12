@@ -27,7 +27,7 @@ export default function AudioComponent({
         setError("");
         setPlay(!play);
 
-        const baseUrl = "https://api.elevenlabs.io/v1/text-to-speech";
+        const baseUrl = import.meta.env.VITE_VOICE_ENDPOINT;
         const headers = {
             "Content-Type": "application/json",
             "xi-api-key": apiKey
