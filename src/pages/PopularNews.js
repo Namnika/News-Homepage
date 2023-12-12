@@ -5,14 +5,10 @@ import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
 import { languages } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";
-import PropTypes from "prop-types";
 
 // fetching top-headlines sort with languages
-PopularNews.propTypes = {
-	baseUrl: PropTypes.string
-};
 
-export default function PopularNews({ baseUrl }) {
+export default function PopularNews() {
 	const isComponentMounted = useRef(true);
 	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 	const voiceId = import.meta.env.VITE_VOICE_ID;
@@ -28,18 +24,16 @@ export default function PopularNews({ baseUrl }) {
 	const lng = languages[language];
 
 	const options = {
+		url: "/latest_headlines",
 		method: "GET",
+		baseURL: import.meta.env.VITE_NEWS_API_ENDPOINT,
 		params: { lang: lng },
 		headers: {
 			"x-api-key": newsApiKey
 		}
 	};
 
-	const { news, loading } = useFetch(
-		{ url: `${baseUrl}/latest_headlines`, options: options },
-		isComponentMounted,
-		[]
-	);
+	const { news, loading } = useFetch(options, isComponentMounted, []);
 
 	const popularNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
 

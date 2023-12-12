@@ -4,14 +4,10 @@ import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
 import { sources } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";
-import PropTypes from "prop-types";
 
 // fetching latest_headlines sort with countries
-TrendingNews.propTypes = {
-	baseUrl: PropTypes.string
-};
 
-export default function TrendingNews({ baseUrl }) {
+export default function TrendingNews() {
 	const isComponentMounted = useRef(true);
 	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 	const voiceId = import.meta.env.VITE_VOICE_ID;
@@ -27,18 +23,16 @@ export default function TrendingNews({ baseUrl }) {
 	const so = sources[source];
 
 	const options = {
+		url: "/latest_headlines",
 		method: "GET",
+		baseURL: import.meta.env.VITE_NEWS_API_ENDPOINT,
 		params: { sources: so },
 		headers: {
 			"x-api-key": newsApiKey
 		}
 	};
 
-	const { news, loading } = useFetch(
-		{ url: `${baseUrl}/latest_headlines`, options: options },
-		isComponentMounted,
-		[]
-	);
+	const { news, loading } = useFetch(options, isComponentMounted, []);
 
 	const trendingNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
 
