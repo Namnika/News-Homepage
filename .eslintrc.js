@@ -7,7 +7,8 @@ module.exports = {
 		jest: true
 	},
 	globals: {
-		__dirname: true
+		__dirname: true,
+		process: true
 	},
 	extends: [
 		"eslint:recommended",
@@ -34,5 +35,5 @@ module.exports = {
 	plugins: [],
 	rules: {
 		"react/react-in-jsx-scope": "off"
-	},
+	}
 };
