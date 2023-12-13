@@ -13,8 +13,10 @@ module.exports = {
 	extends: [
 		"eslint:recommended",
 		"plugin:react/recommended",
+		"plugin:prettier/recommended",
 		"plugin:react/jsx-runtime",
-		"plugin:react-hooks/recommended"
+		"plugin:testing-library/react",
+		"plugin:jest-dom/recommended"
 	],
 	overrides: [
 		{
@@ -27,13 +29,18 @@ module.exports = {
 			}
 		}
 	],
-	// parser: "babel-eslint",
 	parserOptions: {
 		ecmaVersion: "latest",
 		sourceType: "module"
 	},
-	plugins: [],
+	plugins: ["react", "testing-library", "jest-dom"],
 	rules: {
-		"react/react-in-jsx-scope": "off"
+		"react/react-in-jsx-scope": "off",
+		"testing-library/await-async-queries": "error",
+		"testing-library/no-debugging-utils": "warn",
+		"jest-dom/prefer-checked": "error",
+		"jest-dom/prefer-enabled-disabled": "error",
+		"jest-dom/prefer-required": "error",
+		"jest-dom/prefer-to-have-attribute": "error"
 	}
 };
