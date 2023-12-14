@@ -27,7 +27,7 @@ export default function AudioComponent({
         setError("");
         setPlay(!play);
 
-        const baseUrl = import.meta.env.VITE_VOICE_ENDPOINT;
+        const baseUrl = import.meta.env.VITE_VOICE_BASEURL;
         const headers = {
             "Content-Type": "application/json",
             "xi-api-key": apiKey

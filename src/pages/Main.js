@@ -19,7 +19,7 @@ export default function Main() {
 	const options = {
 		url: "/search",
 		method: "GET",
-		baseURL: import.meta.env.VITE_NEWS_API_ENDPOINT,
+		baseURL: import.meta.env.VITE_NEWS_API_BASEURL,
 		params: { q: to, sort_by: "rank" },
 		headers: {
 			"x-api-key": newsApiKey

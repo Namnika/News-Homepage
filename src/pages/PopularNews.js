@@ -26,7 +26,7 @@ export default function PopularNews() {
 	const options = {
 		url: "/latest_headlines",
 		method: "GET",
-		baseURL: import.meta.env.VITE_NEWS_API_ENDPOINT,
+		baseURL: import.meta.env.VITE_NEWS_API_BASEURL,
 		params: { lang: lng },
 		headers: {
 			"x-api-key": newsApiKey

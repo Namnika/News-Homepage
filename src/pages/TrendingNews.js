@@ -25,7 +25,7 @@ export default function TrendingNews() {
 	const options = {
 		url: "/latest_headlines",
 		method: "GET",
-		baseURL: import.meta.env.VITE_NEWS_API_ENDPOINT,
+		baseURL: import.meta.env.VITE_NEWS_API_BASEURL,
 		params: { sources: so },
 		headers: {
 			"x-api-key": newsApiKey
