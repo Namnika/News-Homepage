@@ -24,9 +24,8 @@ export default function PopularNews() {
 	const lng = languages[language];
 
 	const options = {
-		url: "/latest_headlines",
+		url: `${import.meta.env.VITE_NEWS_API_BASEURL}/latest_headlines`,
 		method: "GET",
-		baseURL: import.meta.env.VITE_NEWS_API_BASEURL,
 		params: { lang: lng },
 		headers: {
 			"x-api-key": newsApiKey

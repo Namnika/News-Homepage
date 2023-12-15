@@ -17,9 +17,8 @@ export default function Main() {
 	const to = topics[topic];
 
 	const options = {
-		url: "/search",
+		url: `${import.meta.env.VITE_NEWS_API_BASEURL}/search`,
 		method: "GET",
-		baseURL: import.meta.env.VITE_NEWS_API_BASEURL,
 		params: { q: to, sort_by: "rank" },
 		headers: {
 			"x-api-key": newsApiKey
