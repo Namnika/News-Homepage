@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Skeleton, ConfigProvider } from "antd";
 import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
@@ -8,7 +7,6 @@ import AudioComponent from "../components/AudioComponent";
 // fetching latest_headlines sort with countries
 
 export default function TrendingNews() {
-	const isComponentMounted = useRef(true);
 	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
@@ -31,7 +29,7 @@ export default function TrendingNews() {
 		}
 	};
 
-	const { news, loading } = useFetch(options, isComponentMounted, []);
+	const { news, loading } = useFetch(options, []);
 
 	const trendingNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
 

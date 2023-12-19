@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import News from "./News";
@@ -10,7 +9,6 @@ import "../styles/index.css";
 
 // feching new articles
 export default function Main() {
-	const isComponentMounted = useRef(true);
 	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 
 	const topic = Math.floor(Math.random(topics.map((i) => i)) * topics.length);
@@ -25,7 +23,7 @@ export default function Main() {
 		}
 	};
 
-	const { news, setNews, loading } = useFetch(options, isComponentMounted, []);
+	const { news, setNews, loading } = useFetch(options, []);
 
 	return (
 		<div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-14 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">

@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Skeleton } from "antd";
 import { DotChartOutlined } from "@ant-design/icons";
 import "../styles/index.css";
@@ -9,7 +8,6 @@ import AudioComponent from "../components/AudioComponent";
 // fetching top-headlines sort with languages
 
 export default function PopularNews() {
-	const isComponentMounted = useRef(true);
 	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
@@ -32,7 +30,7 @@ export default function PopularNews() {
 		}
 	};
 
-	const { news, loading } = useFetch(options, isComponentMounted, []);
+	const { news, loading } = useFetch(options, []);
 
 	const popularNews = news.sort(() => 0.5 - Math.random()).slice(0, 3);
 
