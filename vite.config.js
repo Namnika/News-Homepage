@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import { resolve } from "path";
 import fs from "fs/promises";
 import { defineConfig } from "vite";
@@ -33,12 +32,4 @@ export default defineConfig(() => ({
 		}
 	},
 	plugins: [react()],
-	test: {
-		globals: true,
-		environment: "jsdom",
-		setupFiles: ["./src/setupTests.js"],
-		coverage: {
-			reporter: ['text', 'json', 'html'],
-		},
-	}
 }));
