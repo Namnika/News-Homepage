@@ -32,13 +32,11 @@ describe("useFetch", () => {
         const { result } = renderHook(() => useFetch(options, []));
 
         act(() => {
-            console.log(result.current);
             expect(result.current.loading).toBeTruthy();
             expect(result.current.news).toEqual([]);
         });
 
         await waitFor(() => {
-            console.log(result.current);
             expect(result.current.loading).toBeFalsy();
             expect(result.current).toStrictEqual({
                 loading: false,
