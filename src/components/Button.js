@@ -1,4 +1,3 @@
-import "../styles/index.css";
 import PropTypes from "prop-types";
 
 Button.propTypes = {

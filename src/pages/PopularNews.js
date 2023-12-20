@@ -1,6 +1,5 @@
 import { Skeleton } from "antd";
 import { DotChartOutlined } from "@ant-design/icons";
-import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
 import { languages } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";

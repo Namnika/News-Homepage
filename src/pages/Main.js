@@ -5,7 +5,6 @@ import PopularNews from "./PopularNews";
 import TrendingNews from "./TrendingNews";
 import { useFetch } from "../hooks/useFetch";
 import { topics } from "../utils/NewsTopics";
-import "../styles/index.css";
 
 // feching new articles
 export default function Main() {
