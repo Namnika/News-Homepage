@@ -41,7 +41,11 @@ export default function News({ news, loading }) {
                                         />
                                     </Skeleton.Node>
                                 ) : (
-                                    <img src={i.media} className="py-0" alt="web3-img" />
+                                    <img
+                                        src={(i.media === null && <Skeleton.Image />) || i.media}
+                                        className="py-0"
+                                        alt="news-img"
+                                    />
                                 )}
 
                                 <div className="grid grid-cols-1 lg:items-center items-start lg:mt-0 mt-8 text-start lg:grid-cols-2">

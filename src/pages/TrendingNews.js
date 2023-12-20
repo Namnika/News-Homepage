@@ -1,5 +1,4 @@
 import { Skeleton, ConfigProvider } from "antd";
-import "../styles/index.css";
 import { useFetch } from "../hooks/useFetch";
 import { sources } from "../utils/NewsTopics";
 import AudioComponent from "../components/AudioComponent";
@@ -75,7 +74,7 @@ export default function TrendingNews() {
 												{i.title}
 											</h4>
 											<p className="text-[color:hsl(233,8%,79%)] text-[15px] font-['Inter-Regular']">
-												{`${i.excerpt}`}
+												{`${i.excerpt === null && "No description found" || i.excerpt}`}
 											</p>
 										</>
 									)}
