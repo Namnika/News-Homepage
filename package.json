@@ -22,7 +22,7 @@
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"format": "prettier . --write --check",
 		"preview": "vite preview --port 5000",
-		"test": "jest --clearMocks --coverage --watch --env=jsdom"
+		"test": "jest --watch=true --env=jsdom"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -49,6 +49,7 @@
 		"@vitejs/plugin-react": "^4.1.0",
 		"autoprefixer": "^10.4.16",
 		"babel-jest": "^29.7.0",
+		"babel-preset-vite": "^1.1.1",
 		"eslint": "^8.52.0",
 		"eslint-plugin-jest-dom": "^5.1.0",
 		"eslint-plugin-react": "^7.33.2",
@@ -58,8 +59,7 @@
 		"postcss": "^8.4.31",
 		"prettier": "3.0.3",
 		"tailwindcss": "^3.3.3",
-		"vite": "^4.5.0",
-		"vitest": "^1.0.4"
+		"vite": "^4.5.0"
 	},
 	"jest": {
 		"testEnvironment": "jsdom",
