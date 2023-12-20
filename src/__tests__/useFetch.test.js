@@ -1,10 +1,12 @@
-import { act, renderHook, waitFor } from "@testing-library/react";
+import { act, renderHook, cleanup, waitFor } from "@testing-library/react";
 import { useFetch } from "../hooks/useFetch.js";
 import axios from "axios";
 
 jest.mock("axios");
 
 describe("useFetch", () => {
+    afterEach(() => cleanup())
+
     test("should fetch data", async () => {
         const options = {
             url: import.meta.env.VITE_NEWS_API_BASEURL
