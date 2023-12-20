@@ -14,6 +14,7 @@ Get all the latest and greatest topics, across multiple languages, all in one co
     - [Built with](#built-with)
     - [Useful resources](#useful-resources)
     - [Testing](#testing)
+    - [Coverage Report](#coverage-report)
 
 ## Overview
 
@@ -64,4 +65,18 @@ So Listen Calmly!!
 
 ### Testing
 
-- Unit & Static Testing using JEST and RTL
+- Unit Testing with JEST and RTL
+
+- To run the test:
+
+  ```
+  npm run test
+  ```
+
+### Coverage Report
+
+- To get the full coverage report:
+
+  ```
+  npx jest --coverage
+  ```
