@@ -9,12 +9,16 @@ export default function NoMatch() {
             <a href="#">
                 <img src={Logo} alt="logo" />
             </a>
-            <section>
-                <img src={PageNotFound} alt="page-not-found" />
+            <section className="h-[77vh] lg:h-[75vh]">
+                <img
+                    className="lg:h-[65vh] lg:w-[100vw]"
+                    src={PageNotFound}
+                    alt="page-not-found"
+                />
                 <div className="text-base text-[color:hsl(236,13%,42%)]">
                     <p className="font-['Inter-Regular']">
-                        I'm sorry, the page you were looking for does not exist. But don't
-                        worry, I'll let you put on the right track.
+                        Here's nothing to find anything! This page does not exist. But don't
+                        worry, I'll put you on the right track.
                     </p>
                     <p className="font-['Inter-Bold']">
                         Try to visit{" "}
