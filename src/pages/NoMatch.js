@@ -9,26 +9,28 @@ export default function NoMatch() {
             <a href="#">
                 <img src={Logo} alt="logo" />
             </a>
-            <section className="h-[77vh] lg:h-[75vh]">
-                <img
-                    className="lg:h-[65vh] lg:w-[100vw]"
-                    src={PageNotFound}
-                    alt="page-not-found"
-                />
-                <div className="text-base text-[color:hsl(236,13%,42%)]">
-                    <p className="font-['Inter-Regular']">
-                        Here's nothing to find anything! This page does not exist. But don't
-                        worry, I'll put you on the right track.
-                    </p>
-                    <p className="font-['Inter-Bold']">
-                        Try to visit{" "}
-                        {
-                            <Link className="hover:text-[color:hsl(5,85%,63%)]" to="/">
-                                Home
-                            </Link>
-                        }
-                        . You will get someting else than nothing!
-                    </p>
+            <section className="my-auto flex h-[73vh] lg:h-[75vh]">
+                <div className="my-auto mx-auto">
+                    <img
+                        className="lg:h-[65vh] lg:w-[100vw]"
+                        src={PageNotFound}
+                        alt="page-not-found"
+                    />
+                    <div className="text-[15px] text-[color:hsl(236,13%,42%)]">
+                        <p className="font-['Inter-Regular']">
+                            Oops! It looks like you've stumbled upon a page that doesn't
+                            exist. But no worries, I'll put you on the right track.
+                        </p>
+                        <p className="font-['Inter-Bold']">
+                            Try to visit{" "}
+                            {
+                                <Link className="hover:text-[color:hsl(5,85%,63%)]" to="/">
+                                    Home
+                                </Link>
+                            }
+                            . You will get someting else than nothing!
+                        </p>
+                    </div>
                 </div>
             </section>
             <Footer />
