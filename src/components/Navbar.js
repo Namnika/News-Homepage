@@ -12,11 +12,45 @@ Navbar.propTypes = {
 MobileMenu.propTypes = {
 	navOpen: PropTypes.bool,
 	setNavOpen: PropTypes.func,
-	setNews: PropTypes.func
+	setNews: PropTypes.func,
+	navLinks: PropTypes.array
 };
 
 export default function Navbar({ setNews }) {
 	const [navToggled, setNavToggled] = useState(false);
+
+	const navLinks = [
+		{
+			id: "Home",
+			link_name: "Home",
+			link_url: "/",
+			onClick: () => { }
+		},
+		{
+			id: "News",
+			link_name: "News",
+			link_url: "#news",
+			onClick: () => {
+				setNews((news) => [...news, news]);
+			}
+		},
+		{
+			id: "Popular",
+			link_name: "Popular",
+			link_url: "#popular",
+			onClick: () => {
+				setNews((popularNews) => [...popularNews, popularNews]);
+			}
+		},
+		{
+			id: "Trending",
+			link_name: "Trending",
+			link_url: "#trending",
+			onClick: () => {
+				setNews((trendingNews) => [...trendingNews, trendingNews]);
+			}
+		}
+	];
 
 	return (
 		<>
@@ -29,39 +63,15 @@ export default function Navbar({ setNews }) {
 					{/* Destop Navigation */}
 
 					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
-						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link to="/">Home</Link>
-						</li>
-						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link
-								to="#news"
-								onClick={() => {
-									setNews((news) => [...news, news]);
-								}}
-							>
-								News
-							</Link>
-						</li>
-						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link
-								to="#popular"
-								onClick={() => {
-									setNews((popularNews) => [...popularNews, popularNews]);
-								}}
-							>
-								Popular
-							</Link>
-						</li>
-						<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-							<Link
-								to="#trending"
-								onClick={() => {
-									setNews((trendingNews) => [...trendingNews, trendingNews]);
-								}}
-							>
-								Trending
-							</Link>
-						</li>
+						{navLinks.map((i) => {
+							return (
+								<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+									<Link key={i.id} to={i.link_url} onClick={i.onClick}>
+										{i.link_name}
+									</Link>
+								</li>
+							);
+						})}
 					</ul>
 					{/* Mobile Navigation */}
 					<a className="lg:hidden delay-150 cursor-pointer ">
@@ -78,14 +88,14 @@ export default function Navbar({ setNews }) {
 				<MobileMenu
 					navOpen={navToggled}
 					setNavOpen={setNavToggled}
-					setNews={setNews}
+					navLinks={navLinks}
 				/>
 			)}
 		</>
 	);
 }
 
-export function MobileMenu({ navOpen, setNavOpen, setNews }) {
+export function MobileMenu({ navOpen, setNavOpen, navLinks }) {
 	return (
 		<>
 			<div className="top-0 z-10 left-0 absolute w-full h-screen backdrop-brightness-[0.6]"></div>
@@ -102,39 +112,15 @@ export function MobileMenu({ navOpen, setNavOpen, setNews }) {
 					/>
 				</a>
 				<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
-					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link to="/">Home</Link>
-					</li>
-					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link
-							to="#news"
-							onClick={() => {
-								setNews((news) => [...news, news]);
-							}}
-						>
-							News
-						</Link>
-					</li>
-					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link
-							to="#popular"
-							onClick={() => {
-								setNews((popularNews) => [...popularNews, popularNews]);
-							}}
-						>
-							Popular
-						</Link>
-					</li>
-					<li className="hover:text-[color:hsl(5,85%,63%)]">
-						<Link
-							to="#trending"
-							onClick={() => {
-								setNews((trendingNews) => [...trendingNews, trendingNews]);
-							}}
-						>
-							Trending
-						</Link>
-					</li>
+					{navLinks.map((i) => {
+						return (
+							<li className="hover:text-[color:hsl(5,85%,63%)]">
+								<Link key={i.id} to={i.link_url} onClick={i.onClick}>
+									{i.link_name}
+								</Link>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</>
