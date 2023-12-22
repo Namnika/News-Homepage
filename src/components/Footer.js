@@ -3,7 +3,7 @@ import { FaXTwitter, FaLinkedin, FaGithub } from "react-icons/fa6";
 export default function Footer() {
 	return (
 		<>
-			<footer className="py-12 lg:pt-16 lg:pb-20 border-t-[1px] border-slate-200">
+			<footer className="py-12 lg:py-12 border-t-[1px] border-slate-200">
 				<div className="flex flex-col lg:flex-row-reverse w-full  space-y-5 lg:space-y-0">
 					<div className="text-slate-400 text-center space-x-5 inline-flex lg:ml-auto lg:mr-0 lg:my-auto mx-auto">
 						<a

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 export default function NoMatch() {
     return (
-        <div className="bg-[color:hsl(36,100%,99%)] overflow-y-scroll lg:pt-12 lg:pb-0 lg:px-14 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
+        <div className="bg-[color:hsl(36,100%,99%)] overflow-hidden lg:pt-12 lg:pb-0 lg:px-14 pt-4 pb-8 px-4 w-full text-center h-screen antialiased scroll-smooth">
             <a href="#">
                 <img src={Logo} alt="logo" />
             </a>
-            <section className="my-auto flex h-[73vh] lg:h-[75vh]">
+            <section className="my-auto flex h-[73vh] lg:mt-auto lg:mb-4">
                 <div className="my-auto mx-auto">
                     <img
                         className="lg:h-[65vh] lg:w-[100vw]"
