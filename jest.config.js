@@ -5,6 +5,9 @@ module.exports = {
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
     },
+    moduleNameMapper: {
+        '\\.svg$': '<rootDir>/src/__mocks__/svg.js',
+    },
     collectCoverageFrom: ["./src/**"],
     coverageDirectory: "./coverage",
     coveragePathIgnorePatterns: ["<rootDir>/dist/", "<rootDir>/node_modules/"],
