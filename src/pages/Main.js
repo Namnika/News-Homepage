@@ -6,7 +6,7 @@ import TrendingNews from "./TrendingNews";
 import { useFetch } from "../hooks/useFetch";
 import { topics } from "../utils/NewsTopics";
 
-// feching new articles
+// feching new articles sort by rank
 export default function Main() {
 	const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
 
