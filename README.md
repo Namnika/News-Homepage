@@ -1,10 +1,10 @@
-# 🗞️ News homepage
+# 🗞️ News Homepage
 
 Get all the latest and greatest topics, across multiple languages, all in one convenient location!
 
 ## Table of contents
 
-- [🗞️ News homepage](#️-news-homepage)
+- [🗞️ News Homepage](#️-news-homepage)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [Introduction](#introduction)
