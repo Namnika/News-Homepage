@@ -65,8 +65,8 @@ export default function Navbar({ setNews }) {
 					<ul className="lg:flex hidden font-['Inter-Regular'] text-[color:hsl(236,13%,42%)] -right-[1.3rem] relative cursor-pointer text-base flex-row items-end">
 						{navLinks.map((i) => {
 							return (
-								<li className="px-5 hover:text-[color:hsl(5,85%,63%)]">
-									<Link key={i.id} to={i.link_url} onClick={i.onClick}>
+								<li key={i.id} className="px-5 hover:text-[color:hsl(5,85%,63%)]">
+									<Link to={i.link_url} onClick={i.onClick}>
 										{i.link_name}
 									</Link>
 								</li>
@@ -114,8 +114,8 @@ export function MobileMenu({ navOpen, setNavOpen, navLinks }) {
 				<ul className="flex flex-col absolute inset-y-72 left-14 space-y-6 items-start  font-['Inter-Regular'] text-xl">
 					{navLinks.map((i) => {
 						return (
-							<li className="hover:text-[color:hsl(5,85%,63%)]">
-								<Link key={i.id} to={i.link_url} onClick={i.onClick}>
+							<li key={i.id} className="hover:text-[color:hsl(5,85%,63%)]">
+								<Link to={i.link_url} onClick={i.onClick}>
 									{i.link_name}
 								</Link>
 							</li>
