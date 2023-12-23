@@ -7,6 +7,7 @@ module.exports = {
     },
     moduleNameMapper: {
         '\\.svg$': '<rootDir>/src/__mocks__/svg.js',
+        '\\.(css|less)$': '<rootDir>/node_modules/tailwindcss',
     },
     collectCoverageFrom: ["./src/**"],
     coverageDirectory: "./coverage",
