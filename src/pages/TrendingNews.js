@@ -36,7 +36,7 @@ export default function TrendingNews() {
 		<div className=" bg-[color:hsl(240,100%,5%)] lg:col-span-1 col-span-2">
 			<div className="px-4 relative antialiased text-start flex flex-col">
 				<div className="pt-5">
-					<h3 className="text-4xl leading-normal font-['Inter-Bold'] text-[color:hsl(35,77%,62%)]">
+					<h3 data-testid="trending-new" className="text-4xl leading-normal font-['Inter-Bold'] text-[color:hsl(35,77%,62%)]">
 						New
 					</h3>
 				</div>
