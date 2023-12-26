@@ -6,9 +6,12 @@ export const useFetch = (options, initialvalue) => {
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(true);
 
+	const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 	useEffect(() => {
 		(async () => {
 			try {
+				sleep(10000)
 				const res = await axios.request(options);
 				setNews(res.data.articles);
 			} catch (err) {
@@ -16,8 +19,8 @@ export const useFetch = (options, initialvalue) => {
 			} finally {
 				setLoading(false);
 			}
-		})();
-	}, [options]);
+		})()
+	}, []);
 
 	return {
 		loading,
