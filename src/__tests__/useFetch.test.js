@@ -28,7 +28,7 @@ describe("useFetch", () => {
 
         expect(axios.request).toHaveBeenCalledTimes(1);
         expect(axios.request).toHaveBeenCalledWith(options);
-        expect(axios.post).toBeUndefined();
+        expect(axios.get).toBeUndefined();
 
         //render custom hook
         const { result } = renderHook(() => useFetch(options, []));
