@@ -16,7 +16,7 @@ export default function AudioComponent({
     text,
     voiceSettings
 }) {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [play, setPlay] = useState(false);
     const audio = useRef(null);
     const [sourceUrl, setSourceUrl] = useState(null);
@@ -102,7 +102,7 @@ export default function AudioComponent({
                     />
                 )}
             </button>
-            {error && <small className="text-rose-600 space-y-2">{error}</small>}
+            {error && <small data-testid="error" className="text-rose-600 space-y-2">{error}</small>}
         </div>
     );
 }
