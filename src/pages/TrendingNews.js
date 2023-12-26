@@ -10,8 +10,8 @@ export default function TrendingNews() {
 	const voiceId = import.meta.env.VITE_VOICE_ID;
 	const voiceApiKey = import.meta.env.VITE_VOICE_API_KEY;
 	const audioQualitySettings = {
-		stability: 0,
-		similarity_boost: 0
+		stability: 0.5,
+		similarity_boost: 0.75
 	};
 
 	const source = Math.floor(
