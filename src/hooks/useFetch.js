@@ -17,7 +17,7 @@ export const useFetch = (options, initialvalue) => {
 				setLoading(false);
 			}
 		})();
-	}, []);
+	}, [options]);
 
 	return {
 		loading,
