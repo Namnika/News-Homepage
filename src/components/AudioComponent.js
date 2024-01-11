@@ -16,7 +16,7 @@ export default function AudioComponent({
     text,
     voiceSettings
 }) {
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [play, setPlay] = useState(false);
     const audio = useRef(null);
     const [sourceUrl, setSourceUrl] = useState(null);
